@@ -51,9 +51,9 @@ export function HeroSection() {
 
             <div className="relative">
               <p className="text-xl md:text-2xl text-white mb-8 text-pretty leading-relaxed">
-                Turning data into impact through <span className="text-blue-400 font-semibold">AI</span>,{" "}
-                <span className="text-cyan-400 font-semibold">design</span>, and{" "}
-                <span className="text-red-400 font-semibold">diagnostics</span>
+                Transforming ideas into intelligent solutions with <span className="text-blue-400 font-semibold">AI</span>,{" "}
+                <span className="text-cyan-400 font-semibold">Data</span>, and{" "}
+                <span className="text-red-400 font-semibold">Design</span>
               </p>
               <div className="absolute inset-0 animate-shimmer pointer-events-none"></div>
             </div>
