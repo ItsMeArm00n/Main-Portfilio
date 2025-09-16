@@ -52,11 +52,9 @@ export function AboutSection() {
             </div>
 
             <p className="text-lg text-card-foreground leading-relaxed text-pretty">
-              Armaan is a developer focused on <span className="text-primary font-semibold">AI for healthcare</span> and{" "}
-              <span className="text-accent font-semibold">environmental impact</span>. He specializes in clean data
-              workflows, immersive UI/UX, and open-source collaboration. With expertise spanning from{" "}
-              <span className="text-secondary font-semibold">environmental modeling</span> to clinical data analysis,
-              Armaan bridges the gap between complex data science and accessible, impactful applications.
+              I am a student developer passionate about<span className="text-primary font-semibold">artificial intelligence</span> and{" "}
+              <span className="text-accent font-semibold">data-driven problem solving</span>. I enjoy building projects that turn raw data into clear insights, with a focus on clean workflows, intuitive design, and practical applications. With experience in{" "}
+              <span className="text-secondary font-semibold">Python, machine learning, and front-end design tools,</span>I have worked on projects ranging from air quality prediction to risk assessment platforms. I am continuously exploring new ways to bridge the gap between complex models and user-friendly solutions, aswell as expanding my skill set in AI and web development.
             </p>
 
             <div className="absolute inset-0 animate-shimmer pointer-events-none rounded-2xl"></div>
