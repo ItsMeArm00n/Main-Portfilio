@@ -162,6 +162,10 @@ export function ProjectsSection() {
             )
           })}
         </div>
+
+        <div className="text-center mt-12">
+          <p className="text-lg text-muted-foreground/70 italic animate-pulse-slow">More projects coming soon...</p>
+        </div>
       </div>
     </section>
   )

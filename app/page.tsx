@@ -6,10 +6,12 @@ import { ExperienceSection } from "@/components/experience-section"
 import { StatsSection } from "@/components/stats-section"
 import { SkillsSection } from "@/components/skills-section"
 import { Footer } from "@/components/footer"
+import { IntroTransition } from "@/components/intro-transition"
 
 export default function HomePage() {
   return (
     <>
+      <IntroTransition />
       <Navigation />
       <main className="min-h-screen">
         <div id="home">

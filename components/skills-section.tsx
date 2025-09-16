@@ -109,7 +109,7 @@ export function SkillsSection() {
                       <Badge
                         key={skill}
                         variant="outline"
-                        className={`border-${category.color}/30 text-${category.color} hover:bg-${category.color}/20 hover:text-${category.color} transition-all duration-300 animate-fade-in-scale hover:scale-105`}
+                        className={`border-${category.color}/50 bg-${category.color}/10 text-foreground hover:bg-${category.color}/20 hover:text-foreground transition-all duration-300 animate-fade-in-scale hover:scale-105`}
                         style={{ animationDelay: `${index * 150 + skillIndex * 100}ms` }}
                       >
                         {skill}
