@@ -80,8 +80,7 @@ export function Footer() {
           </div>
 
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            © 2024 Armaan Kumar. Built with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> for AI and
-            environmental impact.
+            © 2025 Armaan Kumar. Built with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> Powered by AI, Python, and creativity.
           </p>
         </div>
       </div>

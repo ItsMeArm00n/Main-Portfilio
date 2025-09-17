@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Brain, Leaf } from "lucide-react"
+import { ExternalLink, Brain, Wind } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const projects = [
@@ -12,7 +12,7 @@ const projects = [
     description: "Air Quality Index Predictor with basic and advanced AI models",
     link: "https://aqintel.netlify.app",
     tags: ["Python", "Scikit-learn", "Random Forest", "FastAPI" ,"Data Preprocessing"],
-    icon: Leaf,
+    icon: Wind,
     gradient: "from-blue-500/20 via-cyan-500/15 to-blue-600/20",
     glowClass: "animate-glow",
     textGradient: "gradient-text",
@@ -66,19 +66,15 @@ export function ProjectsSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance gradient-text animate-slide-in-up">
-            Featured Projects
+            My Projects
           </h2>
           <p
             className="text-lg text-muted-foreground text-pretty animate-slide-in-up"
             style={{ animationDelay: "200ms" }}
           >
-            Innovative solutions at the intersection of <span className="text-primary animate-pulse-slow">AI</span>,{" "}
+            My collection of <span className="text-primary animate-pulse-slow"></span>{" "}
             <span className="text-red-400 animate-pulse-slow" style={{ animationDelay: "1s" }}>
-              healthcare
-            </span>
-            , and{" "}
-            <span className="text-cyan-400 animate-pulse-slow" style={{ animationDelay: "2s" }}>
-              environmental impact
+              AI projects{" "}
             </span>
           </p>
         </div>
@@ -115,7 +111,12 @@ export function ProjectsSection() {
                       <div
                         className={`p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 animate-float`}
                       >
-                        <IconComponent className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                        {/* Set Brain icon color to red for MedRisk AI, otherwise use default */}
+                        {project.title === "MedRisk AI" ? (
+                          <Brain className="h-6 w-6 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                        ) : (
+                          <IconComponent className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                        )}
                       </div>
                       <CardTitle
                         className={`text-2xl ${project.textGradient} group-hover:scale-105 transition-all duration-300`}

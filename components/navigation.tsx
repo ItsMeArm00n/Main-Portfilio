@@ -30,10 +30,10 @@ export function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold gradient-text animate-pulse-slow">Armaan</div>
+          <div className="text-2xl font-bold gradient-text animate-pulse-slow">armaan.ai</div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-16">
             <button
               onClick={() => scrollToSection("home")}
               className="text-foreground/80 hover:text-foreground transition-colors duration-300 hover:scale-105"
@@ -59,7 +59,13 @@ export function Navigation() {
               Experience
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("skills")}
+              className="text-foreground/80 hover:text-foreground transition-colors duration-300 hover:scale-105"
+            >
+              Skills
+            </button>
+            <button
+              onClick={() => scrollToSection("footer")}
               className="text-foreground/80 hover:text-foreground transition-colors duration-300 hover:scale-105"
             >
               Contact
@@ -68,15 +74,23 @@ export function Navigation() {
 
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="hover:animate-glow">
-              <Github className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="hover:animate-glow">
-              <Linkedin className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="hover:animate-red-glow">
-              <Mail className="h-5 w-5" />
-            </Button>
+            <a href="https://github.com/ItsMeArm00n" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="hover:animate-glow">
+                <Github className="h-5 w-5" />
+              </Button>
+            </a>
+
+            <a href="https://www.linkedin.com/in/armaan-kumar-631868343" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="hover:animate-glow">
+                <Linkedin className="h-5 w-5" />
+              </Button>
+            </a>
+
+            <a href="mailto:armankumardxb@gmail.com">
+              <Button variant="ghost" size="icon" className="hover:animate-red-glow">
+                <Mail className="h-5 w-5" />
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,7 +128,13 @@ export function Navigation() {
                 Experience
               </button>
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection("skills")}
+                className="text-foreground/80 hover:text-foreground transition-colors duration-300 hover:scale-105"
+              >
+                Skills
+              </button>
+              <button
+                onClick={() => scrollToSection("footer")}
                 className="text-left hover:text-primary transition-colors"
               >
                 Contact

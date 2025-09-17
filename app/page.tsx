@@ -7,7 +7,6 @@ import { StatsSection } from "@/components/stats-section"
 import { SkillsSection } from "@/components/skills-section"
 import { Footer } from "@/components/footer"
 import { IntroTransition } from "@/components/intro-transition"
-
 export default function HomePage() {
   return (
     <>
@@ -27,8 +26,12 @@ export default function HomePage() {
         <div id="experience">
           <ExperienceSection />
         </div>
-        <SkillsSection />
-        <Footer />
+        <div id="skills">
+          <SkillsSection />
+        </div>
+        <div id="footer">
+          <Footer/>
+        </div>
       </main>
     </>
   )

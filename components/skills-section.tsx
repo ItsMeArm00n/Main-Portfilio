@@ -12,8 +12,8 @@ const skillCategories = [
     color: "primary",
   },
   {
-    category: "Web Development",
-    skills: ["_(AI-assisted)*_", "Basic HTML/CSS", "Canva", "Figma", "API Integration"],
+    category: "Web Development*",
+    skills: ["Built with AI guidance*", "Basic HTML/CSS", "Canva", "Figma", "API Integration"],
     icon: Cpu,
     color: "accent",
   },
