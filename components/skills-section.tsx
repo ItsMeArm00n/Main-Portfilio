@@ -7,25 +7,25 @@ import { Code, Palette, Database, Cpu } from "lucide-react"
 const skillCategories = [
   {
     category: "Programming",
-    skills: ["Python", "Pandas", "NLTK"],
+    skills: ["Python", "Pandas", "Flask", "TensorFlow (basics)", "NumPy", "Matplotlib", "Scikit-learn", "FastAPI"],
     icon: Code,
     color: "primary",
   },
   {
-    category: "Frameworks",
-    skills: ["FastAPI", "Hugging Face Spaces", "Gradio"],
+    category: "Web Development",
+    skills: ["_(AI-assisted)*_", "Basic HTML/CSS", "Canva", "Figma", "API Integration"],
     icon: Cpu,
     color: "accent",
   },
   {
-    category: "Design",
-    skills: ["HTML/CSS", "Scoped Animations", "Flexbox"],
+    category: "Tools & Platforms",
+    skills: ["GitHub", "VS Code", "Google Colab", "Hugging Face", "Canva", "Figma"],
     icon: Palette,
     color: "secondary",
   },
   {
-    category: "Data",
-    skills: ["CSV Wrangling", "Encoding Fixes", "Diagnostics"],
+    category: "Core Skills",
+    skills: ["Teamwork", "Problem Solving", "Leadership", "Team Management", "Critical Thinking"],
     icon: Database,
     color: "primary",
   },

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Code, Users, Award, Coffee } from "lucide-react"
+import { Code, Users, Award, Keyboard } from "lucide-react"
 
 const stats = [
   {
@@ -27,7 +27,7 @@ const stats = [
     color: "blue",
   },
   {
-    icon: Coffee,
+    icon: Keyboard,
     value: 1000,
     label: "Hours of Coding",
     suffix: "+",

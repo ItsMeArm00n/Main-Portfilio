@@ -9,9 +9,9 @@ import { useEffect, useRef, useState } from "react"
 const projects = [
   {
     title: "AQIntel",
-    description: "Air Pollution Level Predictor with basic and advanced AI models",
+    description: "Air Quality Index Predictor with basic and advanced AI models",
     link: "https://aqintel.netlify.app",
-    tags: ["Python", "FastAPI", "Gradio", "Environmental Modeling"],
+    tags: ["Python", "Scikit-learn", "Random Forest", "FastAPI" ,"Data Preprocessing"],
     icon: Leaf,
     gradient: "from-blue-500/20 via-cyan-500/15 to-blue-600/20",
     glowClass: "animate-glow",
@@ -22,7 +22,7 @@ const projects = [
     title: "MedRisk AI",
     description: "Health Risk Prediction Platform using clinical data and machine learning",
     link: "https://med-risk-ai.vercel.app",
-    tags: ["Pandas", "ML", "Healthcare", "Open Source"],
+    tags: ["Python", "Scikit-learn", "Random Forest", "Data Analysis","Risk Assessment"],
     icon: Brain,
     gradient: "from-red-500/20 via-rose-500/15 to-red-600/20",
     glowClass: "animate-red-glow",

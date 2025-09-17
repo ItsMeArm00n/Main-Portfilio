@@ -13,15 +13,15 @@ export function Footer() {
   }, [])
 
   const handleGitHubClick = () => {
-    window.open("https://github.com", "_blank", "noopener,noreferrer")
+    window.open("https://github.com/ItsMeArm00n", "_blank", "noopener,noreferrer")
   }
 
   const handleLinkedInClick = () => {
-    window.open("https://linkedin.com", "_blank", "noopener,noreferrer")
+    window.open("https://www.linkedin.com/in/armaan-kumar-631868343", "_blank", "noopener,noreferrer")
   }
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:armaan@example.com"
+    window.location.href = "mailto:armaankumardxb@gmail.com"
   }
 
   return (
@@ -41,8 +41,8 @@ export function Footer() {
         <div className={`transition-all duration-1000 ${isVisible ? "animate-slide-in-up opacity-100" : "opacity-0"}`}>
           <h2 className="text-4xl font-bold mb-8 text-balance gradient-text">Let's Connect</h2>
           <p className="text-lg text-muted-foreground mb-8 text-pretty">
-            Interested in collaborating on <span className="text-blue-400">AI projects</span> that make a{" "}
-            <span className="text-red-300">difference</span>?
+            Open to <span className="text-blue-400">collaborations, guidance, or simply networking</span> —{" "}
+            <span className="text-red-300">feel free to connect.</span>?
           </p>
 
           <div className="flex justify-center gap-4 mb-8 flex-wrap">
