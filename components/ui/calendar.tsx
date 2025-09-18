@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import {
-  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from 'lucide-react'
@@ -142,18 +141,10 @@ function Calendar({
             )
           }
 
-          if (orientation === 'right') {
-            return (
-              <ChevronRightIcon
-                className={cn('size-4', className)}
-                {...props}
-              />
-            )
-          }
-
+          // Default to right chevron if orientation is not left/right
           return (
-            <ChevronDownIcon className={cn('size-4', className)} {...props} />
-          )
+            <ChevronRightIcon className={cn('size-4', className)} {...props} />
+          );
         },
         DayButton: CalendarDayButton,
         WeekNumber: ({ children, ...props }) => {

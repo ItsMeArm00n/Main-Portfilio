@@ -9,7 +9,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Armaan - AI Developer Portfolio",
   description:
-    "Turning data into impact through AI, design, and diagnostics. Portfolio showcasing AI projects in healthcare and environmental impact.",
+    "Transforming ideas into intelligent solutions with AI, data, and design. Portfolio showcasing AI projects in healthcare and environmental impact.",
   generator: "v0.app",
 }
 

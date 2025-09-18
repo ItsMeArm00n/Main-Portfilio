@@ -3,39 +3,48 @@
 import { useEffect, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Briefcase } from "lucide-react"
+import {MapPin, Briefcase } from "lucide-react"
 
 const experiences = [
   {
-    title: "AI Research Intern",
-    company: "TechCorp AI Labs",
-    location: "San Francisco, CA",
-    period: "Jun 2024 - Present",
+    title: "CS50 – Introduction to Programming with Python",
+    company: "Harvard University",
+    location: "Online",
     description:
-      "Developing cutting-edge AI models for healthcare applications, focusing on predictive analytics and risk assessment systems.",
-    technologies: ["Python", "TensorFlow", "PyTorch", "AWS", "Docker"],
+      "Completed 9 problem sets + 1 final project. Built strong foundations in Python, algorithms, and debugging with hands-on practice in structured programming and problem-solving.",
+    technologies: ["Python", "Loops", "OOP", "Regular Expressions", "Exceptions", "File I/O", "Problem Solving", "Critical Thinking"],
     type: "blue",
   },
   {
-    title: "Data Science Consultant",
-    company: "MedTech Solutions",
-    location: "Remote",
-    period: "Jan 2024 - May 2024",
+    title: "Hackathon Winner – TechFest AI",
+    company: "From School",
+    location: "Dubai, UAE",
     description:
-      "Built machine learning models for medical risk prediction and environmental impact analysis for healthcare facilities.",
-    technologies: ["Scikit-learn", "Pandas", "React", "Node.js", "PostgreSQL"],
+      "Developed a sustainable AI solution that won 1st place. Leveraged scikit-learn (Random Forests) on real datasets, gained hands-on ML Experience, and refined the project further as a Capstone.",
+    technologies: ["Scikit-learn", "Pandas", "Matplotlib", "FastAPI", "Web Integration", "Dataset Creation"],
     type: "red",
   },
   {
-    title: "Full Stack Developer",
-    company: "StartupXYZ",
-    location: "New York, NY",
-    period: "Aug 2023 - Dec 2023",
-    description: "Developed responsive web applications with focus on user experience and performance optimization.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+    title: "Awards & Recognition",
+    company: "Various Institutions",
+    location: "Dubai, UAE",
+    description:
+      "Recognized for academic and extracurricular achievements. Notable items: Spectrum 2022 (Best project relevance), Ignited Mind Award, 100% Attendance Medal, Republic Day Volunteer Certificate. Also participated in Model United Nations and served as a Student Teacher/tutor.",
+    technologies: ["Spectrum 2022", "Ignited Mind", "Attendance Medal", "Republic Day Volunteer", "MUN", "Student Teacher"],
     type: "blue",
   },
-]
+  {
+    title: "Certifications & Participation",
+    company: "Online & In-Person Programs",
+    location: "Dubai, UAE",
+    description:
+      "Completed multiple courses and programs including Artificial Intelligence Fundamentals (IBM), Python Fundamentals (Great Learning, with OOP), iOS Design Challenge (participation), school Python hackathons, and LEGO EV3 Robotics Basics (ATLAB).",
+    technologies: ["IBM", "Great Learning", "iOS Challenge", "Hackathon Participation", "Scikit-learn", "Team Leadership", "Team Managment"],
+    type: "red",
+  },
+];
+
+
 
 export function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -68,7 +77,7 @@ export function ExperienceSection() {
     <section id="experience" ref={sectionRef} className="py-20 px-6 relative floating-particles">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Professional Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Experience & Achievements</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             My journey in building innovative solutions across AI, healthcare, and web development
           </p>
@@ -109,10 +118,6 @@ export function ExperienceSection() {
                         <MapPin className="h-4 w-4" />
                         <span>{exp.location}</span>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                      <Calendar className="h-4 w-4" />
-                      <span>{exp.period}</span>
                     </div>
                   </div>
                 </div>
