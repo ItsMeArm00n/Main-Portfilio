@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Brain, Wind } from "lucide-react"
+import { ExternalLink, Brain, Wind, ShieldCheckIcon} from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const projects = [
@@ -29,6 +29,28 @@ const projects = [
     textGradient: "gradient-text-red",
     glassEffect: "glass-effect-red",
   },
+    {
+    title: "PoliTruth AI (Beta)",
+    description: "AI-Powered Fake News Detection Platform for politics, world affairs, or government related News",
+    link: "https://politruth-ai.vercel.app",
+    tags: ["Python", "Scikit-learn", "PassiveAggressiveClassifier", "NLP", "NLTK"],
+    icon: ShieldCheckIcon,
+    gradient: "from-green-500/20 via-rose-500/15 to-green-600/20",
+    glowClass: "animate-green-glow",
+    textGradient: "gradient-text-green",
+    glassEffect: "glass-effect-green",
+  },
+	{
+		title: "BhāvSense AI (Upcoming Project)",
+		description: "A Hindi sentiment classifier using logistic regression to label text as positive, negative, or neutral.",
+		link: "https://armaan-ai.vercel.app",
+		tags: ["Python", "Scikit-learn", "LogisticRegression", "NLP" ,"Data Preprocessing"],
+		icon: Wind,
+		gradient: "from-blue-500/20 via-cyan-500/15 to-blue-600/20",
+		glowClass: "animate-glow",
+		textGradient: "gradient-text",
+		glassEffect: "glass-effect",
+	},
 ]
 
 export function ProjectsSection() {
