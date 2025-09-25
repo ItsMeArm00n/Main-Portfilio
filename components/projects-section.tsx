@@ -29,7 +29,7 @@ const projects = [
     textGradient: "gradient-text-red",
     glassEffect: "glass-effect-red",
   },
-    {
+  {
     title: "PoliTruth AI (Beta)",
     description: "AI-Powered Fake News Detection Platform for politics, world affairs, or government related News",
     link: "https://politruth-ai.vercel.app",
@@ -40,17 +40,17 @@ const projects = [
     textGradient: "gradient-text-green",
     glassEffect: "glass-effect-green",
   },
-	{
-		title: "BhāvSense AI (Upcoming Project)",
-		description: "A Hindi sentiment classifier using logistic regression to label text as positive, negative, or neutral.",
-		link: "https://armaan-ai.vercel.app",
-		tags: ["Python", "Scikit-learn", "LogisticRegression", "NLP" ,"Data Preprocessing"],
-		icon: Wind,
-		gradient: "from-blue-500/20 via-cyan-500/15 to-blue-600/20",
-		glowClass: "animate-glow",
-		textGradient: "gradient-text",
-		glassEffect: "glass-effect",
-	},
+  {
+    title: "BhāvSense AI (Upcoming Project)",
+    description: "A Hindi sentiment classifier using logistic regression to label text as positive, negative, or neutral.",
+    link: "https://armaan-ai.vercel.app",
+    tags: ["Python", "Scikit-learn", "LogisticRegression", "NLP" ,"Data Preprocessing"],
+    icon: ShieldCheckIcon, // changed to ShieldCheckIcon
+    gradient: "from-orange-500/20 via-rose-500/15 to-orange-600/20",
+    glowClass: "animate-orange-glow",
+    textGradient: "gradient-text-orange", // text will be orange
+    glassEffect: "glass-effect-orange",
+  },
 ]
 
 export function ProjectsSection() {
@@ -125,23 +125,31 @@ export function ProjectsSection() {
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-all duration-700`}
                   ></div>
-
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer"></div>
-
                   <CardHeader className="relative z-10">
                     <div className="flex items-center gap-3 mb-2">
                       <div
                         className={`p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 animate-float`}
                       >
-                        {/* Set Brain icon color to red for MedRisk AI, otherwise use default */}
+                        {/* Set Brain icon color to red for MedRisk AI, green for PoliTruth AI, orange for BhāvSense AI, otherwise use default */}
                         {project.title === "MedRisk AI" ? (
                           <Brain className="h-6 w-6 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                        ) : project.title === "PoliTruth AI (Beta)" ? (
+                          <ShieldCheckIcon className="h-6 w-6 text-green-500 group-hover:scale-110 transition-transform duration-300" />
+                        ) : project.title === "BhāvSense AI (Upcoming Project)" ? (
+                          <ShieldCheckIcon className="h-6 w-6 text-orange-500 group-hover:scale-110 transition-transform duration-300" />
                         ) : (
                           <IconComponent className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                         )}
                       </div>
                       <CardTitle
-                        className={`text-2xl ${project.textGradient} group-hover:scale-105 transition-all duration-300`}
+                        className={`text-2xl ${
+                          project.title === "PoliTruth AI (Beta)"
+                            ? "text-green-500"
+                            : project.title === "BhāvSense AI (Upcoming Project)"
+                            ? "text-orange-500"
+                            : project.textGradient
+                        } group-hover:scale-105 transition-all duration-300`}
                       >
                         {project.title}
                       </CardTitle>

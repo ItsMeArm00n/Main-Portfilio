@@ -167,6 +167,30 @@
   }
 }
 
+@keyframes greenGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(233, 0, 122, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 40px hsla(120, 60%, 50%, 0.6),
+      0 0 60px hsla(140, 70%, 60%, 0.3);
+  }
+}
+
+@keyframes orangeGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(233, 0, 122, 0.3); /* pinkish base glow */
+  }
+  50% {
+    box-shadow:
+      0 0 40px hsla(30, 100%, 50%, 0.6),   /* bright orange */
+      0 0 60px hsla(10, 90%, 60%, 0.3);    /* warm reddish-orange */
+  }
+}
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -264,6 +288,14 @@
 /* Added red glow class for MedRisk AI */
 .animate-red-glow {
   animation: redGlow 3s ease-in-out infinite;
+}
+
+.animate-green-glow {
+  animation: greenGlow 3s ease-in-out infinite;
+}
+
+.animate-orange-glow {
+  animation: orangeGlow 3s ease-in-out infinite;
 }
 
 .animate-slide-in-up {
