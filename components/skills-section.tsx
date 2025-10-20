@@ -1,125 +1,112 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
-import { useEffect, useRef, useState } from "react"
-import { Code, Palette, Database, Cpu } from "lucide-react"
+import { Card } from "@/components/ui/card"
+import { Code, Database, Palette, Wrench, Laptop } from "lucide-react"
 
-const skillCategories = [
-  {
-    category: "Programming",
-    skills: ["Python", "Pandas", "Flask", "TensorFlow (basics)", "NumPy", "Matplotlib", "Scikit-learn", "FastAPI"],
-    icon: Code,
-    color: "primary",
-  },
-  {
-    category: "Web Development*",
-    skills: ["Built with AI guidance*", "Basic HTML/CSS", "Canva", "Figma", "API Integration"],
-    icon: Cpu,
-    color: "accent",
-  },
-  {
-    category: "Tools & Platforms",
-    skills: ["GitHub", "VS Code", "Google Colab", "Hugging Face", "Canva", "Figma"],
-    icon: Palette,
-    color: "secondary",
-  },
-  {
-    category: "Core Skills",
-    skills: ["Teamwork", "Problem Solving", "Leadership", "Team Management", "Critical Thinking"],
-    icon: Database,
-    color: "primary",
-  },
-]
-
-export function SkillsSection() {
-  const [visibleCategories, setVisibleCategories] = useState<boolean[]>([])
-  const categoryRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = categoryRefs.current.indexOf(entry.target as HTMLDivElement)
-          if (entry.isIntersecting && index !== -1) {
-            setVisibleCategories((prev) => {
-              const newVisible = [...prev]
-              newVisible[index] = true
-              return newVisible
-            })
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    categoryRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
-
-    return () => observer.disconnect()
-  }, [])
+export default function SkillsSection() {
+  const skillCategories = [
+    {
+      icon: <Code className="w-8 h-8 text-gray-400" />,
+      title: "AI & Machine Learning",
+      skills: [
+        "Python",
+        "Scikit-learn",
+        "TensorFlow (basics)",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+      ],
+    },
+    {
+      icon: <Laptop className="w-8 h-8 text-gray-400" />,
+      title: "Development",
+      skills: [
+        "FastAPI",
+        "Flask",
+        "Web Development (HTML, CSS, JS)",
+        "API Integration",
+      ],
+    },
+    {
+      icon: <Palette className="w-8 h-8 text-gray-400" />,
+      title: "Design & Prototyping",
+      skills: [
+        "Figma",
+        "Canva",
+        "UI/UX Basics",
+      ],
+    },
+    {
+      icon: <Database className="w-8 h-8 text-gray-400" />,
+      title: "Tools & Platforms",
+      skills: [
+        "Google Colab",
+        "VS Code",
+        "GitHub",
+        "Hugging Face",
+      ],
+    },
+    {
+      icon: <Wrench className="w-8 h-8 text-gray-400" />,
+      title: "Professional Skills",
+      skills: [
+        "Problem Solving",
+        "Teamwork",
+        "Leadership",
+        "Critical Thinking",
+        "Project Management",
+      ],
+    },
+  ]
 
   return (
-    <section className="py-20 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background"></div>
-      <div className="absolute top-1/4 left-1/3 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-float"></div>
-      <div
-        className="absolute bottom-1/4 right-1/3 w-48 h-48 bg-accent/5 rounded-full blur-3xl animate-float"
-        style={{ animationDelay: "2s" }}
-      ></div>
+    <section id="skills" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black"></div>
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-float-slow-reverse"></div>
+      </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance gradient-text">Skills & Expertise</h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            A comprehensive toolkit for building <span className="text-primary">impactful</span>{" "}
-            <span className="text-accent">AI solutions</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-shine">Skills & Tools</h2>
+          <p className="text-white/75 text-lg max-w-2xl mx-auto">
+            Technical expertise across AI, data science, and software development
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon
-            return (
-              <div
-                key={category.category}
-                ref={(el) => {
-                  categoryRefs.current[index] = el
-                }}
-                className={`text-center transition-all duration-700 ${
-                  visibleCategories[index] ? "animate-slide-in-up opacity-100" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="glass-effect rounded-2xl p-6 hover-lift border border-border/50 group">
-                  <div className="flex justify-center mb-4">
-                    <div
-                      className={`p-3 rounded-full bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors animate-float`}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillCategories.map((category, index) => (
+            <Card
+              key={index}
+              className="glass glass-hover p-8 hover:scale-102 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 border border-white/10 relative group overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="flex flex-col items-center text-center space-y-6 relative z-10">
+                <div className="p-4 glass rounded-2xl bg-white/5 group-hover:bg-white/10 transition-colors duration-300 transform group-hover:scale-110">
+                  {category.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+                  {category.title}
+                </h3>
+                <div className="space-y-3 w-full">
+                  {category.skills.map((skill, idx) => (
+                    <div 
+                      key={idx} 
+                      className="text-white/75 text-sm py-2 px-4 rounded-lg bg-white/5 hover:bg-white/10 transform hover:scale-105 transition-all duration-200 border border-white/5"
                     >
-                      <IconComponent className={`h-6 w-6 text-${category.color}`} />
+                      {skill}
                     </div>
-                  </div>
-
-                  <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
-                    {category.category}
-                  </h3>
-
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skill}
-                        variant="outline"
-                        className={`border-${category.color}/50 bg-${category.color}/10 text-foreground hover:bg-${category.color}/20 hover:text-foreground transition-all duration-300 animate-fade-in-scale hover:scale-105`}
-                        style={{ animationDelay: `${index * 150 + skillIndex * 100}ms` }}
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
-            )
-          })}
+            </Card>
+          ))}
+        </div>
+        <div className="text-center mt-8">
+          <span className="text-white/60 text-base italic">AI Assisted/Guided*</span>
         </div>
       </div>
     </section>

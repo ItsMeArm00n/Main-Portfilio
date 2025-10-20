@@ -1,71 +1,110 @@
 "use client"
+import { ChevronDown, Code2, Database, Sparkles } from "lucide-react"
+import { Card } from "@/components/ui/card"
 
-import { Button } from "@/components/ui/button"
-import { ArrowDown, Code, Sparkles } from "lucide-react"
-import { useEffect, useState } from "react"
-
-export function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+export default function HeroSection() {
+  const scrollToAbout = () => {
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 floating-particles">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
-        <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/8 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute top-1/2 left-1/2 w-32 h-32 bg-cyan-500/12 rounded-full blur-2xl animate-float"
-          style={{ animationDelay: "4s" }}
-        ></div>
-        <div
-          className="absolute top-10 right-10 w-20 h-20 bg-indigo-500/15 rounded-full blur-xl animate-pulse-slow"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute bottom-10 left-10 w-24 h-24 bg-rose-500/12 rounded-full blur-xl animate-pulse-slow"
-          style={{ animationDelay: "3s" }}
-        ></div>
-      </div>
+    <section
+      id="home"
+      className="min-h-screen relative flex items-center justify-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: "url(/images/background.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
 
-      <div className="text-center max-w-4xl mx-auto relative z-10">
-        <div className="bg-background/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border/20 glass-effect hover-lift">
-          <div
-            className={`transition-all duration-1000 ${isVisible ? "animate-slide-in-up opacity-100" : "opacity-0"}`}
-          >
-            <div className="flex justify-center items-center gap-4 mb-6">
-              <Code className="h-8 w-8 text-blue-400 animate-float" />
-              <Sparkles className="h-6 w-6 text-red-400 animate-float" style={{ animationDelay: "1s" }} />
-            </div>
-
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-balance text-white gradient-text">Armaan Kumar</h1>
-
-            <div className="relative">
-              <p className="text-xl md:text-2xl text-white mb-8 text-pretty leading-relaxed">
-                Transforming ideas into intelligent solutions with <span className="text-blue-400 font-semibold">AI</span>,{" "}
-                <span className="text-cyan-400 font-semibold">Data</span>, and{" "}
-                <span className="text-red-400 font-semibold">Design</span>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <div>
+          <div className="flex items-center justify-center mb-8 sm:mb-12">
+            <div className="text-center">
+              <p className="text-sm sm:text-lg text-white/75">
+                Welcome to my <strong>personal portfolio</strong> 👋
               </p>
-              <div className="absolute inset-0 animate-shimmer pointer-events-none"></div>
+            </div>
+          </div>
+
+          <div className="relative mb-10 sm:mb-16">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white px-2 mb-4">
+              Armaan Kumar
+              <br />
+              <span className="text-sm sm:text-lg md:text-xl lg:text-2xl font-normal text-white/90 block mt-4">
+                “Hi, I’m Armaan — An AI Enthusiast.”
+              </span>
+            </h1>
+
+            <div className="absolute top-12 sm:top-16 -left-8 sm:-left-12 md:-left-16 animate-float-2 transform -rotate-6">
+              <div className="glass glass-hover rounded-xl sm:rounded-2xl p-2 sm:p-4 w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center">
+                <Code2 className="w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-400" />
+              </div>
             </div>
 
-            <Button
-              onClick={scrollToProjects}
-              size="lg"
-              className="bg-gradient-to-r from-blue-500 to-red-500 hover:from-blue-600 hover:to-red-600 text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 animate-glow hover-lift glass-effect border-0"
+            <div className="absolute -top-8 sm:-top-12 -right-8 sm:-right-12 md:-right-16 animate-float-3 transform rotate-6">
+              <div className="glass glass-hover rounded-xl sm:rounded-2xl p-2 sm:p-4 w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-400" />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-12 sm:mb-16 px-2">
+            <Card className="glass glass-hover p-3 sm:p-6 text-center group">
+              <div className="flex items-start justify-center space-x-2 sm:space-x-3">
+                <div>
+                  <p className="font-semibold text-white text-xs sm:text-base">
+                     I build AI & data-driven solutions for real-world challenges.  
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="glass glass-hover p-3 sm:p-6 text-center group">
+              <div className="flex items-start justify-center space-x-2 sm:space-x-3">
+                <div>
+                  <p className="font-semibold text-white text-xs sm:text-base">
+                    I make intelligent systems using Python & machine learning.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="glass glass-hover p-3 sm:p-6 text-center group">
+              <div className="flex items-start justify-center space-x-2 sm:space-x-3">
+                <div>
+                  <p className="font-semibold text-white text-xs sm:text-base">
+                    I love exploring new technologies and innovative ideas.  
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="glass glass-hover p-3 sm:p-6 text-center group">
+              <div className="flex items-start justify-center space-x-2 sm:space-x-3">
+                <div>
+                  <p className="font-semibold text-white text-xs sm:text-base">
+                    I want to pursue AI and make an impact in the field.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={scrollToAbout}
+              className="animate-gentle-bounce hover:scale-105 transition-all duration-500 group"
             >
-              View My Work
-              <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
-            </Button>
+              <div className="glass glass-hover rounded-full p-2 sm:p-4 w-10 h-10 sm:w-16 sm:h-16 flex items-center justify-center">
+                <ChevronDown className="w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:text-white/80 transition-colors duration-300" />
+              </div>
+            </button>
           </div>
         </div>
       </div>

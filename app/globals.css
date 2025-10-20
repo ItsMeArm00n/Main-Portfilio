@@ -4,45 +4,81 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark theme with blue gradients for professional developer portfolio */
-  --background: oklch(0.08 0.02 240); /* Very dark blue-black */
-  --foreground: oklch(0.95 0.01 240); /* Off-white with blue tint */
-  --card: oklch(0.12 0.03 240); /* Dark blue card background */
-  --card-foreground: oklch(0.9 0.01 240); /* Light text on cards */
-  --popover: oklch(0.12 0.03 240);
-  --popover-foreground: oklch(0.9 0.01 240);
-  --primary: oklch(0.6 0.25 240); /* Bright blue primary */
-  --primary-foreground: oklch(0.95 0.01 240);
-  --secondary: oklch(0.45 0.2 220); /* Darker blue secondary */
-  --secondary-foreground: oklch(0.95 0.01 240);
-  --muted: oklch(0.15 0.02 240);
-  --muted-foreground: oklch(0.65 0.01 240);
-  --accent: oklch(0.7 0.3 200); /* Cyan accent */
-  --accent-foreground: oklch(0.08 0.02 240);
-  --destructive: oklch(0.6 0.25 15);
-  --destructive-foreground: oklch(0.95 0.01 240);
-  --border: oklch(0.2 0.02 240);
-  --input: oklch(0.15 0.02 240);
-  --ring: oklch(0.6 0.25 240 / 0.5);
-  --chart-1: oklch(0.6 0.25 240);
-  --chart-2: oklch(0.7 0.3 200);
-  --chart-3: oklch(0.55 0.2 260);
-  --chart-4: oklch(0.65 0.25 180);
-  --chart-5: oklch(0.5 0.2 280);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.12 0.03 240);
-  --sidebar-foreground: oklch(0.9 0.01 240);
-  --sidebar-primary: oklch(0.6 0.25 240);
-  --sidebar-primary-foreground: oklch(0.95 0.01 240);
-  --sidebar-accent: oklch(0.15 0.02 240);
-  --sidebar-accent-foreground: oklch(0.9 0.01 240);
-  --sidebar-border: oklch(0.2 0.02 240);
-  --sidebar-ring: oklch(0.6 0.25 240 / 0.5);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Set Space Grotesk as the default sans font */
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -87,313 +123,279 @@
   }
   body {
     @apply bg-background text-foreground;
-    background: radial-gradient(circle at 20% 80%, oklch(0.15 0.1 240 / 0.6) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, oklch(0.15 0.1 0 / 0.5) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, oklch(0.12 0.05 200 / 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 60% 80%, oklch(0.13 0.08 340 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 10% 10%, oklch(0.14 0.06 180 / 0.2) 0%, transparent 40%),
-      radial-gradient(circle at 90% 90%, oklch(0.12 0.04 300 / 0.25) 0%, transparent 45%),
-      linear-gradient(
-        135deg,
-        oklch(0.08 0.02 240) 0%,
-        oklch(0.06 0.03 250) 15%,
-        oklch(0.05 0.02 0) 30%,
-        oklch(0.06 0.03 340) 45%,
-        oklch(0.07 0.02 200) 60%,
-        oklch(0.08 0.02 230) 75%,
-        oklch(0.06 0.03 280) 90%,
-        oklch(0.08 0.02 240) 100%
-      );
-    background-attachment: fixed;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    animation: backgroundShift 30s ease-in-out infinite;
+    background-color: #000000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #000000;
   }
 }
 
-/* Added more sophisticated animations including background movement and particle effects */
-@keyframes backgroundShift {
-  0%,
-  100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%, 10% 10%, 90% 90%, 0% 0%;
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md;
   }
-  16% {
-    background-position: 100% 0%, 0% 100%, 25% 75%, 75% 25%, 90% 10%, 10% 90%, 0% 0%;
+
+  .glass-hover {
+    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
   }
-  33% {
-    background-position: 100% 100%, 0% 0%, 75% 25%, 50% 50%, 50% 90%, 50% 10%, 0% 0%;
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
-  50% {
-    background-position: 0% 100%, 100% 0%, 50% 50%, 25% 75%, 10% 50%, 90% 50%, 0% 0%;
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
   }
-  66% {
-    background-position: 50% 50%, 50% 50%, 25% 75%, 75% 25%, 90% 90%, 10% 10%, 0% 0%;
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
   }
-  83% {
-    background-position: 25% 75%, 75% 25%, 90% 10%, 10% 90%, 50% 10%, 50% 90%, 0% 0%;
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  /* Replaced orbital animations with gentle floating animations */
+  .animate-float-1 {
+    animation: gentleFloat1 4s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: gentleFloat2 5s ease-in-out infinite;
+  }
+
+  .animate-float-3 {
+    animation: gentleFloat3 6s ease-in-out infinite;
+  }
+
+  .animate-gentle-bounce {
+    animation: gentleBounce 3s ease-in-out infinite;
+  }
+
+  /* Added infinite horizontal scroll animation for trusted by section */
+  .animate-scroll-left {
+    animation: scrollLeft 15s linear infinite;
+  }
+
+  /* Adding new animations for talks section */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  /* Added float animation for dynamic portfolio cards */
+  .animate-portfolio-float {
+    animation: portfolioFloat 6s ease-in-out infinite;
+  }
+
+  /* Added modal animations for certifications */
+  .animate-modal-fadeIn {
+    animation: modalFadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-modal-scaleIn {
+    animation: modalScaleIn 0.3s ease-out forwards;
+  }
+
+  /* Enhanced modal animations for smoother transitions */
+  .animate-modal-fade-in {
+    animation: modalFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-modal-scale-in {
+    animation: modalScaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Added shining effect for achievements title */
+  .animate-shine {
+    background: linear-gradient(90deg, #fff 0%, #ffd700 50%, #fff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine 3s linear infinite;
+  }
+
+  /* Adding navbar hover line animation */
+  .nav-item {
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .nav-item:hover::after {
+    width: 100%;
+  }
+
+  /* Added grid animation for hero section */
+  @keyframes gridMove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
   }
 }
 
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-  66% {
-    transform: translateY(-5px) rotate(-1deg);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px oklch(0.6 0.25 240 / 0.3);
+    transform: translateY(0px);
   }
   50% {
-    box-shadow: 0 0 40px oklch(0.6 0.25 240 / 0.6), 0 0 60px oklch(0.7 0.3 200 / 0.3);
+    transform: translateY(-10px);
   }
 }
 
-/* Added red glow animation for MedRisk AI project */
-@keyframes redGlow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px oklch(0.6 0.25 0 / 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px oklch(0.6 0.25 0 / 0.6), 0 0 60px oklch(0.7 0.3 20 / 0.3);
-  }
-}
-
-@keyframes greenGlow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(233, 0, 122, 0.3);
-  }
-  50% {
-    box-shadow:
-      0 0 40px hsla(120, 60%, 50%, 0.6),
-      0 0 60px hsla(140, 70%, 60%, 0.3);
-  }
-}
-
-@keyframes orangeGlow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(233, 0, 122, 0.3); /* pinkish base glow */
-  }
-  50% {
-    box-shadow:
-      0 0 40px hsla(30, 100%, 50%, 0.6),   /* bright orange */
-      0 0 60px hsla(10, 90%, 60%, 0.3);    /* warm reddish-orange */
-  }
-}
-
-@keyframes slideInUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(50px) scale(0.95);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-@keyframes fadeInScale {
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: scale(0.8) rotate(-5deg);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: translateY(0);
   }
 }
 
-@keyframes shimmer {
+/* Replaced orbital keyframes with gentle floating animations */
+@keyframes gentleFloat1 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes gentleFloat2 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes gentleFloat3 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gentleBounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Updated keyframes for horizontal scrolling animation */
+@keyframes scrollLeft {
   0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Added pulse and typing animations for more professional effects */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
     transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-@keyframes slideInRight {
+/* Adding keyframes for new talks section animations */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-.animate-float {
-  animation: float 8s ease-in-out infinite;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.animate-glow {
-  animation: glow 3s ease-in-out infinite;
+/* Added float animation for dynamic portfolio cards */
+@keyframes portfolioFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* Added red glow class for MedRisk AI */
-.animate-red-glow {
-  animation: redGlow 3s ease-in-out infinite;
+/* Added modal animation keyframes */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.animate-green-glow {
-  animation: greenGlow 3s ease-in-out infinite;
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-.animate-orange-glow {
-  animation: orangeGlow 3s ease-in-out infinite;
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-fade-in-scale {
-  animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, oklch(0.7 0.3 200 / 0.2), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-/* Added new animation classes for enhanced effects */
-.animate-pulse-slow {
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, oklch(0.6 0.25 240), oklch(0.7 0.3 200), oklch(0.55 0.2 260));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Added red gradient text for MedRisk AI theming */
-.gradient-text-red {
-  background: linear-gradient(135deg, oklch(0.6 0.25 0), oklch(0.7 0.3 20), oklch(0.55 0.2 340));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.glass-effect {
-  background: oklch(0.12 0.03 240 / 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid oklch(0.2 0.02 240 / 0.3);
-}
-
-/* Added red glass effect for MedRisk AI */
-.glass-effect-red {
-  background: oklch(0.12 0.03 0 / 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid oklch(0.2 0.02 0 / 0.3);
-}
-
-.hover-lift {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 25px 50px oklch(0.05 0.02 240 / 0.5);
-}
-
-/* Added floating particles background effect */
-.floating-particles::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(circle at 25% 25%, oklch(0.6 0.25 240 / 0.2) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, oklch(0.6 0.25 0 / 0.18) 2px, transparent 2px),
-    radial-gradient(circle at 50% 10%, oklch(0.7 0.3 200 / 0.15) 1px, transparent 1px),
-    radial-gradient(circle at 10% 60%, oklch(0.65 0.28 340 / 0.12) 1px, transparent 1px),
-    radial-gradient(circle at 90% 40%, oklch(0.55 0.2 180 / 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 60% 90%, oklch(0.6 0.22 280 / 0.08) 1px, transparent 1px),
-    radial-gradient(circle at 30% 30%, oklch(0.65 0.26 120 / 0.06) 1px, transparent 1px);
-  background-size: 120px 120px, 180px 180px, 250px 250px, 200px 200px, 300px 300px, 160px 160px, 220px 220px;
-  animation: float 20s ease-in-out infinite, backgroundShift 35s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.floating-particles::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(circle at 60% 30%, oklch(0.5 0.2 260 / 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 30% 70%, oklch(0.6 0.25 20 / 0.12) 1px, transparent 1px),
-    radial-gradient(circle at 80% 60%, oklch(0.55 0.18 160 / 0.08) 1px, transparent 1px),
-    radial-gradient(circle at 20% 40%, oklch(0.65 0.24 320 / 0.06) 1px, transparent 1px);
-  background-size: 400px 400px, 350px 350px, 280px 280px, 320px 320px;
-  animation: float 25s ease-in-out infinite reverse, backgroundShift 40s ease-in-out infinite reverse;
-  pointer-events: none;
+/* Added shine animation for achievements title */
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
