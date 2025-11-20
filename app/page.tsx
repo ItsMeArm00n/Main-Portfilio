@@ -10,10 +10,12 @@ import OngoingProjectsSection from "@/components/ongoing-projects-section"
 import PublicationsSection from "@/components/publications-section"
 import Footer from "@/components/footer"
 import ScrollFadeWrapper from "@/components/scroll-fade-wrapper"
+import WelcomePopup from "@/components/welcome-popup"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
+      <WelcomePopup />
       <Navbar />
 
       <ScrollFadeWrapper delay={100}>
