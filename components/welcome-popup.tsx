@@ -58,7 +58,7 @@ export default function WelcomePopup() {
         <div className="p-8">
           {/* Header */}
           <div className="mb-6">
-            <h2 className="text-xl font-light text-white mb-2 tracking-wide">
+            <h2 className="text-2xl font-semibold text-white mb-3 tracking-tight">
               <span className="inline-block animate-pulse">🚧</span> Under Construction
             </h2>
             <div className="relative w-full h-px bg-white/5 overflow-hidden rounded-full">
@@ -67,7 +67,7 @@ export default function WelcomePopup() {
           </div>
 
           {/* Body */}
-          <div className="space-y-3 text-white/70 text-sm leading-relaxed">
+          <div className="space-y-3 text-white/75 text-sm leading-relaxed font-medium">
             <p>
               This website is still under construction. Some sections may be outdated or incomplete.
             </p>
