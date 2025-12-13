@@ -1,0 +1,292 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+}
+
+.mindmapWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 600px;
+}
+
+.svgLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connectionLine {
+  stroke: rgba(255, 255, 255, 1);
+  stroke-width: 1;
+  transition: all 0.5s ease;
+}
+
+.connectionLine.active {
+  stroke: rgba(59, 130, 246, 0.6);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
+}
+
+.tutorialHint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.tutorialHint.visible {
+  opacity: 1;
+}
+
+.pointer {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  margin-bottom: 1rem;
+}
+
+.hintText {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  margin-top: 60px; /* Push below the center node */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  letter-spacing: 0.5px;
+}
+
+.subHintText {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.centerNode {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 20;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.coreInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(59, 130, 246, 0.5) 50%, transparent 100%);
+  border-radius: 50%;
+  animation: pulse-core 3s infinite ease-in-out;
+  z-index: 1;
+  filter: blur(5px);
+}
+
+.coreOuter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: spin-slow 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes pulse-core {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.centerNode:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.centerNode:hover .coreOuter {
+  border-color: rgba(59, 130, 246, 0.5);
+  animation-duration: 5s;
+}
+
+.centerNode.active {
+  background: radial-gradient(circle at center, #1e293b 0%, #000000 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.categoryNode {
+  width: 90px;
+  height: 90px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.categoryNode:hover, .categoryNode.active {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: var(--category-color, rgba(59, 130, 246, 0.5));
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 40px var(--category-color, rgba(59, 130, 246, 0.2));
+  z-index: 15;
+}
+
+.skillNode {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillNode.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.skillNode:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--category-color, rgba(59, 130, 246, 0.4));
+  color: white;
+  transform: translate(-50%, -50%) scale(1.1);
+  z-index: 10;
+  box-shadow: 0 0 15px var(--category-color, rgba(59, 130, 246, 0.2));
+}
+
+.label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+
+.categoryNode.active .label {
+  color: var(--category-color, #60a5fa);
+  font-weight: 700;
+  text-shadow: 0 0 10px var(--category-color, rgba(96, 165, 250, 0.5));
+}
+
+.centerLabel {
+  bottom: auto;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.icon {
+  color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.categoryNode.active .icon {
+  color: var(--category-color, #60a5fa);
+  filter: drop-shadow(0 0 8px var(--category-color, rgba(96, 165, 250, 0.5)));
+}
+
+.collapseHint {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-top: 80px;
+}
+
+.collapseHint.visible {
+  opacity: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .mindmapWrapper {
+    height: 600px;
+  }
+  
+  .centerNode { width: 100px; height: 100px; }
+  .categoryNode { width: 70px; height: 70px; }
+  .icon { width: 28px; height: 28px; }
+  .label { font-size: 0.75rem; bottom: -25px; }
+}

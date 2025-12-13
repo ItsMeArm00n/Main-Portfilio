@@ -28,7 +28,9 @@ export default function PublicationsSection() {
                   This paper presents AQIntel, a machine learning web app that predicts global Air Quality Index (AQI) using Indian CPCB standards. It employs RandomForestClassifier and RandomForestRegressor , trained on pollutant and meteorological data (PM2.5, PM10, NO2, SO2, CO, O3). The project demonstrates AI’s potential for environmental monitoring, with future scope in deep learning and live sensor integration.
                 </p>
                 <a
-                  href="#"
+                  href="https://zenodo.org/records/17316093"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors group/link"
                 >
                   View Publication

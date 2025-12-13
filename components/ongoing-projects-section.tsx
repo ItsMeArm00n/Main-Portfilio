@@ -7,21 +7,21 @@ export default function OngoingProjectsSection() {
   const projects = [
     {
       title: "Bus Delay Predictor",
-      description: "Predicts bus arrival using RTA data with machine learning algorithms",
+      description: "An ML-powered system that leverages RTA data to predict bus arrival times with high accuracy, reducing commute uncertainty.",
       status: "In Development",
-      icon: <Clock className="w-6 h-6 text-gray-400" />,
+      icon: <Clock className="w-6 h-6 text-blue-400" />,
     },
     {
-      title: "Nutrition & Health Analysis Website",
-      description: "ML-powered platform for nutrition analysis and disease risk insights",
+      title: "Nutrition & Health Analysis",
+      description: "A comprehensive health platform using machine learning to analyze nutritional intake and provide personalized disease risk assessments.",
       status: "In Development",
-      icon: <Clock className="w-6 h-6 text-gray-500" />,
+      icon: <Clock className="w-6 h-6 text-green-400" />,
     },
     {
-      title: "AI-Powered Waste Segregation System",
-      description: "Computer vision model detecting waste types for sustainable management",
+      title: "WhatsApp CoPilot",
+      description: "A voice-activated AI assistant designed for safe communication while driving, enabling hands-free message composition on WhatsApp.",
       status: "In Development",
-      icon: <Clock className="w-6 h-6 text-gray-600" />,
+      icon: <Clock className="w-6 h-6 text-emerald-400" />,
     },
   ]
 
@@ -44,9 +44,9 @@ export default function OngoingProjectsSection() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass glass-hover p-6 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group"
+              className="glass glass-hover p-6 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group h-full"
             >
-              <div className="space-y-4">
+              <div className="flex flex-col h-full space-y-4">
                 <div className="flex items-center justify-between">
                   {project.icon}
                   <span className="text-xs px-3 py-1 rounded-full glass text-gray-400 border border-gray-400/30">
@@ -56,7 +56,7 @@ export default function OngoingProjectsSection() {
                 <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-white/75 text-sm leading-relaxed">{project.description}</p>
+                <p className="text-white/75 text-sm leading-relaxed flex-grow">{project.description}</p>
               </div>
             </Card>
           ))}
