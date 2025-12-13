@@ -106,7 +106,7 @@ export default function WelcomePopup() {
                     onClick={handleClose}
                     className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-black/40 border border-amber-500/20 text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/40 transition-all duration-300 font-medium text-sm"
                 >
-                    <span>Proceed Anyway</span>
+                    <span>Continue</span>
                 </button>
             </div>
         </div>
