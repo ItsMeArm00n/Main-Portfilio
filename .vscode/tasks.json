@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "append_css",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"echo \"\n@keyframes shine {\n  0% { transform: translateX(-100%) skewX(-12deg); }\n  100% { transform: translateX(200%) skewX(-12deg); }\n}\n\n.animate-shine {\n  animation: shine 1.5s infinite;\n}\" >> c:\\Users\\armaa\\Documents\\GitHub\\Main-Portfilio\\app\\globals.css"
+			],
+			"isBackground": false,
+			"group": "none"
+		}
+	]
+}

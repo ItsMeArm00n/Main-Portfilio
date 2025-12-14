@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
-import { Code, Database, Palette, Wrench, Laptop, Brain, Cpu, Globe, Terminal, Layers } from "lucide-react"
+import { Code, Database, Palette, Wrench, Laptop, Brain, Cpu, Globe, Terminal, Layers, User } from "lucide-react"
 import styles from "./skills-section.module.css"
 
 // Data Structure
@@ -27,10 +27,10 @@ const categories: Category[] = [
     color: "#ec4899", // Pink
     skills: [
       { name: "Python" },
-      { name: "TensorFlow" },
-      { name: "PyTorch" },
-      { name: "Scikit-learn" },
+      { name: "Supervised ML" },
       { name: "Pandas" },
+      { name: "Scikit-learn" },
+      { name: "Evaluation" },
       { name: "NumPy" },
     ],
   },
@@ -41,11 +41,11 @@ const categories: Category[] = [
     angle: 342, // Top Right
     color: "#3b82f6", // Blue
     skills: [
-      { name: "React / Next.js" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "FastAPI" },
       { name: "HTML/CSS" },
+      { name: "TypeScript" },
+      { name: "React / Next.js" },
+      { name: "FastAPI" },
+      { name: "Node.js" },
     ],
   },
   {
@@ -56,9 +56,9 @@ const categories: Category[] = [
     color: "#f59e0b", // Amber
     skills: [
       { name: "Git / GitHub" },
-      { name: "Docker" },
+      { name: "Google Colab" },
       { name: "VS Code" },
-      { name: "Linux" },
+      { name: "Hugging Face" },
       { name: "Postman" },
     ],
   },
@@ -83,11 +83,11 @@ const categories: Category[] = [
     angle: 198, // Top Left
     color: "#10b981", // Emerald
     skills: [
-      { name: "Leadership" },
+      { name: "Conflict Resolution" },
+      { name: "Critical Thinking" },
+      { name: "Team Management" },
       { name: "Problem Solving" },
-      { name: "Communication" },
-      { name: "Agile" },
-      { name: "Teamwork" },
+      { name: "Leadership" },
     ],
   },
 ]
@@ -135,9 +135,10 @@ export default function SkillsSection() {
   }, [isAutoPlaying, showAll])
 
   const handleCenterClick = () => {
-    setShowAll(!showAll)
+    const newShowAll = !showAll
+    setShowAll(newShowAll)
     setActiveCategory(null)
-    setIsAutoPlaying(false)
+    setIsAutoPlaying(!newShowAll)
     setShowTutorial(false)
   }
 
@@ -160,9 +161,9 @@ export default function SkillsSection() {
   
   // Elliptical radii for wider spread (Reduced for better visibility)
   const categoryRadiusX = dimensions.width * 0.30
-  const categoryRadiusY = dimensions.height * 0.35
+  const categoryRadiusY = dimensions.height * 0.32
   
-  const skillRadiusX = dimensions.width * 0.42
+  const skillRadiusX = dimensions.width * 0.40
   const skillRadiusY = dimensions.height * 0.45
 
   const getPosition = (angle: number, radiusX: number, radiusY: number) => {
@@ -240,12 +241,11 @@ export default function SkillsSection() {
           >
             <div className={styles.coreInner} />
             <div className={styles.coreOuter} />
-            <Cpu className="w-10 h-10 text-white relative z-10" />
+            <User className="w-10 h-10 text-white relative z-10" />
           </div>
 
           {/* Tutorial Hint */}
           <div className={`${styles.tutorialHint} ${styles.visible}`}>
-            <div className={styles.pointer} />
             <div className={styles.hintText}>Click center to view all</div>
             <div className={styles.subHintText}>Hover categories to explore</div>
           </div>
@@ -262,6 +262,7 @@ export default function SkillsSection() {
           {categories.map((cat) => {
             const pos = getPosition(cat.angle, categoryRadiusX, categoryRadiusY)
             const isActive = showAll || activeCategory === cat.id
+            const isBottom = cat.angle > 0 && cat.angle < 180
 
             return (
               <div
@@ -278,7 +279,14 @@ export default function SkillsSection() {
                 <div className={styles.icon} style={{ color: isActive ? cat.color : undefined }}>
                   {cat.icon}
                 </div>
-                <span className={styles.label} style={{ color: isActive ? cat.color : undefined }}>
+                <span 
+                  className={styles.label} 
+                  style={{ 
+                    color: isActive ? cat.color : undefined,
+                    bottom: isBottom ? 'auto' : '-30px',
+                    top: isBottom ? '-30px' : 'auto'
+                  }}
+                >
                   {cat.title}
                 </span>
               </div>

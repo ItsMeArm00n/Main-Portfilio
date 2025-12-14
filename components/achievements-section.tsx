@@ -74,6 +74,7 @@ export default function AchievementsSection() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -222,8 +223,45 @@ export default function AchievementsSection() {
     }
   }
 
+  const sectionRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const handleWheelEvent = (e: WheelEvent) => {
+      // Prevent the default scroll behavior of the page
+      e.preventDefault()
+      e.stopPropagation()
+      
+      if (scrollTimeoutRef.current) return
+
+      if (e.deltaY > 0) {
+        handleNext()
+      } else {
+        handlePrev()
+      }
+
+      scrollTimeoutRef.current = setTimeout(() => {
+        scrollTimeoutRef.current = null
+      }, 300)
+    }
+
+    // Add non-passive event listener to prevent scrolling
+    container.addEventListener('wheel', handleWheelEvent, { passive: false })
+
+    return () => {
+      container.removeEventListener('wheel', handleWheelEvent)
+    }
+  }, []) // Empty dependency array is fine as handleNext/Prev use functional state updates or refs
+
   return (
-    <section id="achievements" className="py-24 relative overflow-hidden bg-black min-h-[600px] flex flex-col justify-center">
+    <section 
+      ref={sectionRef}
+      id="achievements" 
+      className="py-24 relative overflow-hidden bg-black min-h-[600px] flex flex-col justify-center"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800/20 via-black to-black"></div>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
@@ -238,7 +276,7 @@ export default function AchievementsSection() {
           </p>
         </div>
 
-        <div className={styles.container}>
+        <div className={styles.container} ref={containerRef}>
           {achievements.map((achievement, index) => (
             <div
               key={index}
@@ -274,6 +312,22 @@ export default function AchievementsSection() {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Indicators */}
+        <div className="flex justify-center gap-3 mt-12 relative z-20">
+          {achievements.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleCardClick(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === activeIndex 
+                  ? "bg-white w-8" 
+                  : "bg-white/20 w-2 hover:bg-white/50"
+              }`}
+              aria-label={`Go to achievement ${index + 1}`}
+            />
           ))}
         </div>
       </div>

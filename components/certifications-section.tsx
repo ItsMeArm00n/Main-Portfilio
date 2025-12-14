@@ -114,8 +114,12 @@ export default function CertificationsSection() {
 
   return (
     <>
-      <section id="certifications-banner" className="py-16 bg-black overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section id="certifications-banner" className="py-16 bg-black overflow-hidden relative">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Certifications & Courses</h2>
             <p className="text-white/75 text-lg max-w-2xl mx-auto">
@@ -173,33 +177,62 @@ export default function CertificationsSection() {
 
       {selectedCert && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-modal-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-300"
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="relative bg-gradient-to-br from-gray-900 to-black border border-white/20 rounded-2xl p-6 md:p-8 max-w-2xl w-full shadow-2xl shadow-blue-500/20 animate-modal-scale-in"
+            className="relative bg-black/40 border border-white/10 rounded-3xl overflow-hidden max-w-4xl w-full shadow-2xl shadow-blue-500/10 animate-in zoom-in-95 duration-300 backdrop-blur-xl"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Decorative background elements */}
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-500/10 to-transparent pointer-events-none" />
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+
             <button
               onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+              className="absolute top-4 right-4 z-10 text-white/60 hover:text-white hover:bg-white/10 p-2 rounded-full transition-all duration-200"
               aria-label="Close modal"
             >
               <X className="w-6 h-6" />
             </button>
 
-            <div className="flex flex-col items-center text-center space-y-6">
-              <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                <img
-                  src={selectedCert.logo || "/placeholder.svg"}
-                  alt={`${selectedCert.name} logo`}
-                  className="w-full h-full object-contain"
-                />
+            <div className="flex flex-col md:flex-row">
+              {/* Left Side: Logo & Visuals */}
+              <div className="w-full md:w-1/3 bg-white/5 p-8 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+                <div className="relative z-10 w-40 h-40 md:w-48 md:h-48 bg-white rounded-2xl p-4 shadow-xl shadow-black/20 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
+                  <img
+                    src={selectedCert.logo || "/placeholder.svg"}
+                    alt={`${selectedCert.name} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-bold text-white">{selectedCert.name}</h3>
-                <p className="text-white/75 text-base md:text-lg leading-relaxed">{selectedCert.description}</p>
+              {/* Right Side: Content */}
+              <div className="w-full md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
+                <div className="mb-6">
+                  <div className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider uppercase mb-3">
+                    Certification
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                    {selectedCert.name}
+                  </h3>
+                </div>
+                
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    {selectedCert.description}
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-sm text-gray-400">Verified Credential</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

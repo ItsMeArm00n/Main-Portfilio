@@ -68,6 +68,13 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-6 mr-6">
             <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="nav-item text-white/75 hover:text-white transition-colors relative"
+              aria-label="Navigate to home"
+            >
+              Home
+            </button>
+            <button
               onClick={() => scrollToSection("about")}
               className="nav-item text-white/75 hover:text-white transition-colors relative"
               aria-label="Navigate to about section"
@@ -75,11 +82,18 @@ export default function Navbar() {
               About
             </button>
             <button
-              onClick={() => scrollToSection("certifications-section")}
+              onClick={() => scrollToSection("certifications")}
               className="nav-item text-white/75 hover:text-white transition-colors relative"
               aria-label="Navigate to certifications section"
             >
-              Home
+              Certifications
+            </button>
+            <button
+              onClick={() => scrollToSection("skills")}
+              className="nav-item text-white/75 hover:text-white transition-colors relative"
+              aria-label="Navigate to skills section"
+            >
+              Skills
             </button>
             <button
               onClick={() => scrollToSection("projects")}
