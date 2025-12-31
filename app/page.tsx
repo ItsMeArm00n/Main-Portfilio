@@ -5,6 +5,7 @@ import AboutSection from "@/components/about-section"
 import SkillsSection from "@/components/skills-section"
 import AchievementsSection from "@/components/achievements-section"
 import InternshipsExperienceSection from "@/components/internships-experience-section"
+import LeadershipSection from "@/components/leadership-section"
 import PortfolioSection from "@/components/portfolio-section"
 import OngoingProjectsSection from "@/components/ongoing-projects-section"
 import PublicationsSection from "@/components/publications-section"
@@ -51,6 +52,12 @@ export default function Home() {
         <ScrollFadeWrapper delay={475}>
           <InternshipsExperienceSection />
         </ScrollFadeWrapper>
+
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+
+      <ScrollFadeWrapper delay={490}>
+        <LeadershipSection />
+      </ScrollFadeWrapper>
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
 

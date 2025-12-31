@@ -40,14 +40,9 @@ export default function AboutSection() {
   useEffect(() => {
     const calculateItemWidth = () => {
       if (containerRef.current) {
-        const firstItem = containerRef.current.querySelector(".keyword-item")
-        if (firstItem) {
-          const rect = firstItem.getBoundingClientRect()
-          const styles = window.getComputedStyle(firstItem)
-          const marginLeft = Number.parseInt(styles.marginLeft)
-          const marginRight = Number.parseInt(styles.marginRight)
-          setItemWidth(rect.width + marginLeft + marginRight)
-        }
+        const totalWidth = containerRef.current.scrollWidth
+        // We have 12 sets of keywords
+        setItemWidth(totalWidth / 12)
       }
     }
 
@@ -64,7 +59,8 @@ export default function AboutSection() {
     const animate = () => {
       setTranslateX((prev) => {
         const newTranslateX = prev - 0.9 // Increased speed
-        const resetPoint = -(itemWidth * keywords.length)
+        // Reset when we've scrolled past one full set of keywords
+        const resetPoint = -itemWidth
 
         if (newTranslateX <= resetPoint) {
           return 0
@@ -91,7 +87,7 @@ export default function AboutSection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] -rotate-12 flex flex-col gap-24 justify-center opacity-[0.03]">
            {/* Row 1 */}
            <div ref={containerRef} className="flex whitespace-nowrap" style={{ transform: `translateX(${translateX}px)` }}>
-              {[...keywords, ...keywords, ...keywords, ...keywords].map((keyword, i) => (
+              {Array(12).fill(keywords).flat().map((keyword, i) => (
                  <div key={`r1-${i}`} className="keyword-item flex items-center gap-6 mx-12 text-6xl font-black text-white uppercase tracking-widest">
                     {keyword.icon}
                     <span>{keyword.name}</span>
@@ -100,7 +96,7 @@ export default function AboutSection() {
            </div>
            {/* Row 2 (Reverse) */}
            <div className="flex whitespace-nowrap" style={{ transform: `translateX(${-translateX - 1000}px)` }}>
-              {[...keywords, ...keywords, ...keywords, ...keywords].map((keyword, i) => (
+              {Array(12).fill(keywords).flat().map((keyword, i) => (
                  <div key={`r2-${i}`} className="flex items-center gap-6 mx-12 text-6xl font-black text-white uppercase tracking-widest">
                     {keyword.icon}
                     <span>{keyword.name}</span>
@@ -109,7 +105,7 @@ export default function AboutSection() {
            </div>
            {/* Row 2.5 (Reverse - Added) */}
            <div className="flex whitespace-nowrap" style={{ transform: `translateX(${-translateX - 200}px)` }}>
-              {[...keywords, ...keywords, ...keywords, ...keywords].map((keyword, i) => (
+              {Array(12).fill(keywords).flat().map((keyword, i) => (
                  <div key={`r2.5-${i}`} className="flex items-center gap-6 mx-12 text-6xl font-black text-white uppercase tracking-widest">
                     {keyword.icon}
                     <span>{keyword.name}</span>
@@ -118,7 +114,7 @@ export default function AboutSection() {
            </div>
            {/* Row 3 */}
            <div className="flex whitespace-nowrap" style={{ transform: `translateX(${translateX - 500}px)` }}>
-              {[...keywords, ...keywords, ...keywords, ...keywords].map((keyword, i) => (
+              {Array(12).fill(keywords).flat().map((keyword, i) => (
                  <div key={`r3-${i}`} className="flex items-center gap-6 mx-12 text-6xl font-black text-white uppercase tracking-widest">
                     {keyword.icon}
                     <span>{keyword.name}</span>

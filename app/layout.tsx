@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Armaan Kumar - Portfolio",
   description:
-    "Personal portfolio of Armaan Kumar, a Grade 12 student and AI & Data Science enthusiast. Showcasing projects, skills, and achievements in Python development and data science.",
+    "Personal portfolio of Armaan Kumar, a Grade 12 student and AI & Data Science enthusiast. Showcasing projects, skills, and achievements & awards in Python development and data science.",
   keywords: [
     "Armaan Kumar",
     "Portfolio",
@@ -50,11 +50,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://armaankumar.com",
+    url: "https://armaan-ai.vercel.app",
     siteName: "Armaan Kumar Portfolio",
     title: "Armaan Kumar - AI & Data Science Portfolio",
     description:
-      "Personal portfolio of Armaan Kumar, a Grade 12 student and AI & Data Science enthusiast. Showcasing projects, skills, and achievements in Python development and data science.",
+      "Personal portfolio of Armaan Kumar, a Grade 12 student and AI & Data Science enthusiast. Showcasing projects, skills, and achievements & awards in Python development and data science.",
     images: [
       {
         url: "/images/portfolioimage.png",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Armaan Kumar - AI & Data Science Portfolio",
     description:
-      "Personal portfolio of Armaan Kumar, a Grade 12 student and AI & Data Science enthusiast. Showcasing projects, skills, and achievements in Python development and data science.",
+      "Personal portfolio of Armaan Kumar, a Grade 12 student and AI & Data Science enthusiast. Showcasing projects, skills, and achievements & awards in Python development and data science.",
     creator: "@armaan_kumar",
     images: ["/images/portfolioimage.png"],
   },

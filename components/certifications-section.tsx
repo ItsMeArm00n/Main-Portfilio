@@ -127,7 +127,7 @@ export default function CertificationsSection() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden py-10">
             <div
               ref={containerRef}
               className="flex transition-none"
@@ -137,7 +137,7 @@ export default function CertificationsSection() {
                 <div key={`first-${index}`} className="cert-item flex-shrink-0 mx-6 flex items-center justify-center">
                   <button
                     onClick={() => setSelectedCert(cert)}
-                    className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+                    className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
                   >
                     <img
                       src={cert.logo || "/placeholder.svg"}
@@ -153,7 +153,7 @@ export default function CertificationsSection() {
                 <div key={`second-${index}`} className="cert-item flex-shrink-0 mx-6 flex items-center justify-center">
                   <button
                     onClick={() => setSelectedCert(cert)}
-                    className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+                    className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
                   >
                     <img
                       src={cert.logo || "/placeholder.svg"}

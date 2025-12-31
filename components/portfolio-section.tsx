@@ -1,6 +1,7 @@
 "use client"
-import { useState } from "react"
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { ChevronLeft, ChevronRight, ExternalLink, Github, FlaskConical, X, Leaf, Waves, Activity } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 interface Project {
   id: string
@@ -60,14 +61,67 @@ const projects: Project[] = [
   },
 ]
 
+const miscProjects = [
+  {
+    id: "swasth-ai",
+    title: "Swasth AI",
+    description: "AI-powered health assistant for early detection of nutrition deficiencies and lifestyle diseases.",
+    link: "https://swasth-ai-prototype.vercel.app",
+    icon: <Activity className="w-8 h-8 text-red-400" />,
+    color: "from-red-500/20 to-orange-500/20",
+    border: "border-red-500/30"
+  },
+  {
+    id: "eco-haven",
+    title: "Eco Haven",
+    description: "Sustainable tech innovations featuring autonomous plant care (BioSync) and self-healing concrete.",
+    link: "https://ecohvn.vercel.app",
+    icon: <Leaf className="w-8 h-8 text-green-400" />,
+    color: "from-green-500/20 to-emerald-500/20",
+    border: "border-green-500/30"
+  },
+  {
+    id: "project-riptide",
+    title: "Project Riptide",
+    description: "Ocean conservation initiative using AI and technology for plastic waste removal and ecological restoration.",
+    link: "https://project-riptide.netlify.app",
+    icon: <Waves className="w-8 h-8 text-blue-400" />,
+    color: "from-blue-500/20 to-cyan-500/20",
+    border: "border-blue-500/30"
+  }
+]
+
 export default function PortfolioSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isMiscOpen, setIsMiscOpen] = useState(false)
+  const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const currentProject = projects[currentIndex]
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (autoPlayTimeoutRef.current) {
+        clearTimeout(autoPlayTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  const handleInteraction = () => {
+    setIsAutoPlaying(false)
+    if (autoPlayTimeoutRef.current) {
+      clearTimeout(autoPlayTimeoutRef.current)
+    }
+    autoPlayTimeoutRef.current = setTimeout(() => {
+      setIsAutoPlaying(true)
+    }, 5000)
+  }
+
   const nextSlide = () => {
     if (isTransitioning) return
+    handleInteraction()
     setIsTransitioning(true)
     setCurrentIndex((prev) => (prev + 1) % projects.length)
     setTimeout(() => setIsTransitioning(false), 700)
@@ -75,6 +129,7 @@ export default function PortfolioSection() {
 
   const prevSlide = () => {
     if (isTransitioning) return
+    handleInteraction()
     setIsTransitioning(true)
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length)
     setTimeout(() => setIsTransitioning(false), 700)
@@ -82,13 +137,31 @@ export default function PortfolioSection() {
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return
+    handleInteraction()
     setIsTransitioning(true)
     setCurrentIndex(index)
     setTimeout(() => setIsTransitioning(false), 700)
   }
 
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      if (!isTransitioning) {
+        setIsTransitioning(true)
+        setCurrentIndex((prev) => (prev + 1) % projects.length)
+        setTimeout(() => setIsTransitioning(false), 700)
+      }
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying, isTransitioning])
+
   return (
-    <section id="projects" className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+    <section 
+      id="projects" 
+      className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden"
+    >
       <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out">
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
@@ -142,7 +215,7 @@ export default function PortfolioSection() {
             >
               {projects.map((project) => (
                 <div key={project.id} className="w-full flex-shrink-0">
-                  <div className="bg-gradient-to-br from-gray-900/40 to-black/40 border border-white/5 rounded-2xl p-6 md:p-10 space-y-6">
+                  <div className="bg-gradient-to-br from-gray-900/40 to-black/40 border border-white/5 rounded-2xl p-6 md:p-10 space-y-6 animate-portfolio-float">
                     <div className="space-y-4">
                       <h4 className="text-3xl md:text-4xl font-bold text-white">{project.title}</h4>
                       <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-3xl">
@@ -207,8 +280,92 @@ export default function PortfolioSection() {
               />
             ))}
           </div>
+
+          {/* Misc Projects Button */}
+          <div className="flex justify-center mt-12">
+            <Button
+              onClick={() => setIsMiscOpen(true)}
+              className="group relative px-8 py-6 bg-transparent border border-white/10 hover:border-white/30 rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="flex items-center gap-3 relative z-10">
+                <FlaskConical className="w-5 h-5 text-blue-400 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="text-lg font-light tracking-wider text-white/80 group-hover:text-white transition-colors">
+                  View Experimental Lab
+                </span>
+              </div>
+            </Button>
+          </div>
         </div>
       </div>
+
+      {/* Misc Projects Overlay */}
+      {isMiscOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/90 backdrop-blur-xl animate-in fade-in duration-300"
+            onClick={() => setIsMiscOpen(false)}
+          />
+
+          {/* Content Container */}
+          <div className="relative w-full max-w-5xl bg-black/40 border border-white/10 rounded-3xl p-8 md:p-12 overflow-hidden animate-in zoom-in-95 duration-300 shadow-2xl">
+            
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsMiscOpen(false)}
+              className="absolute top-6 right-6 p-2 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Header */}
+            <div className="text-center mb-12 space-y-4">
+              <div className="inline-flex items-center justify-center p-3 bg-blue-500/10 rounded-full mb-4">
+                <FlaskConical className="w-8 h-8 text-blue-400" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Experimental Projects</h2>
+              <p className="text-white/60 max-w-xl mx-auto text-lg">
+                A collection of prototypes, concepts, and innovations exploring the intersection of AI, sustainability, and health.
+              </p>
+            </div>
+
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {miscProjects.map((project, index) => (
+                <a
+                  key={project.id}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative p-6 rounded-2xl border ${project.border} bg-gradient-to-br ${project.color} hover:scale-[1.02] transition-all duration-300 flex flex-col h-full`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="mb-4 p-3 bg-black/20 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
+                    {project.icon}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-white/70 text-sm leading-relaxed mb-6 flex-grow">
+                    {project.description}
+                  </p>
+
+                  <div className="flex items-center gap-2 text-xs font-medium text-white/50 group-hover:text-white transition-colors mt-auto">
+                    <span>View Prototype</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </div>
+
+                  {/* Hover Glow */}
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

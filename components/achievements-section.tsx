@@ -13,61 +13,92 @@ interface Achievement {
 }
 
 const achievements: Achievement[] = [
+  // --- TIER 1: NATIONAL & MAJOR COMPETITIONS ---
+  {
+    icon: <Terminal className="w-10 h-10 text-cyan-400" />,
+    title: "Finalist – Quantathon (Shaastra)",
+    description: "Qualified for the Grand Finale (Top 6 Nationwide) in a high-stakes algorithmic challenge among ~1000 participants.",
+    color: "from-cyan-500/20 to-blue-900/20",
+  },
   {
     icon: <GitCommit className="w-10 h-10 text-green-400" />,
     title: "1st Place – Commit & Conquer",
-    description: "Top-ranked contributor among 400+ participants in Open-Source Hackathon.",
+    description: "Ranked 1st (Top 0.25%) among 400+ contributors in an Open-Source Hackathon.",
     color: "from-green-500/20 to-emerald-900/20",
+  },
+  {
+    icon: <Zap className="w-10 h-10 text-orange-400" />,
+    title: "National Finalist – SwastAI",
+    description: "Shortlisted for Round 2 (Grand Finale) of the Bharath Innovation Challenge for an AI-driven holistic health platform.",
+    color: "from-orange-500/20 to-red-900/20",
+  },
+
+  // --- TIER 2: ENGINEERING & AI SPECIALIZATION ---
+  {
+    icon: <Medal className="w-10 h-10 text-blue-400" />,
+    title: "3rd Place – Innovista (Eco Haven)",
+    description: "Developed 'Eco Haven' featuring Arduino-based autonomous plant systems and self-healing materials (concrete/circuits).",
+    color: "from-blue-500/20 to-indigo-900/20",
+  },
+  {
+    icon: <Bot className="w-10 h-10 text-blue-400" />,
+    title: "Google Gemini AI – Excellence",
+    description: "Awarded for outstanding performance and knowledge sharing during 'The Future is Now' AI ambassador session among 500+ people.",
+    color: "from-blue-400/20 to-cyan-900/20",
   },
   {
     icon: <Trophy className="w-10 h-10 text-yellow-400" />,
     title: "1st Place – Techfest AI",
-    description: "Led and presented winning AI project across 3 schools.",
+    description: "Led the presentation of a winning AI project across a competitive field of three schools.",
     color: "from-yellow-500/20 to-amber-900/20",
   },
   {
-    icon: <Medal className="w-10 h-10 text-blue-400" />,
-    title: "3rd Place – Innovista 2025",
-    description: "Led interdisciplinary team for “Eco Haven” – AI-integrated sustainable urban living system.",
-    color: "from-blue-500/20 to-indigo-900/20",
+    icon: <Award className="w-10 h-10 text-purple-400" />,
+    title: "Project Prometheus (Spectrum)",
+    description: "Won 'Best Theme Relevance' for a scientific model converting carbon compounds into graphene.",
+    color: "from-purple-500/20 to-fuchsia-900/20",
+  },
+
+  // --- TIER 3: TECHNICAL RANKINGS & ASSESSMENTS ---
+  {
+    icon: <Terminal className="w-10 h-10 text-emerald-400" />,
+    title: "Tough Tongue AI Challenge",
+    description: "Achieved Top 5% (Rank 24/440) in a technical challenge covering AI logic and coding puzzles.",
+    color: "from-emerald-500/20 to-teal-900/20",
+  },
+  {
+    icon: <Star className="w-10 h-10 text-yellow-400" />,
+    title: "Quiz-A-Thon 1.0",
+    description: "Achieved Top 4% (Rank 19/471) in an advanced JavaScript and technical MCQ assessment.",
+    color: "from-yellow-500/20 to-orange-900/20",
+  },
+  {
+    icon: <GitCommit className="w-10 h-10 text-indigo-400" />,
+    title: "Elite Coders Winter of Code",
+    description: "Selected member of an exclusive 1,000+ developer community for open-source contribution.",
+    color: "from-indigo-500/20 to-purple-900/20",
+  },
+
+  // --- TIER 4: SOFT SKILLS & ACADEMICS ---
+  {
+    icon: <Award className="w-10 h-10 text-purple-400" />,
+    title: "Runner-Up Best Staff (Quix MUN)",
+    description: "Recognized as the Top 3% of the Staff Board (Rank 2/60) for leadership and operational excellence.",
+    color: "from-purple-500/20 to-violet-900/20",
+  },
+  {
+    icon: <Palette className="w-10 h-10 text-pink-400" />,
+    title: "VCREATE Creative Award",
+    description: "Recognized for independent thinking and creative problem-solving in multidisciplinary projects.",
+    color: "from-pink-500/20 to-rose-900/20",
   },
   {
     icon: <Zap className="w-10 h-10 text-yellow-300" />,
     title: "Ignited Mind Award",
-    description: "Recognized for innovative thinking and academic curiosity.",
+    description: "Honored for consistent academic excellence and superior performance in school enrichment assessments.",
     color: "from-yellow-400/20 to-orange-900/20",
   },
-  {
-    icon: <Award className="w-10 h-10 text-purple-400" />,
-    title: "Spectrum Science Exhibition",
-    description: "Best project relevance to theme.",
-    color: "from-purple-500/20 to-fuchsia-900/20",
-  },
-  {
-    icon: <Terminal className="w-10 h-10 text-emerald-400" />,
-    title: "Tough Tongue AI Challenge",
-    description: "Rank 24 with 100% scores among college students.",
-    color: "from-emerald-500/20 to-teal-900/20",
-  },
-  {
-    icon: <Bot className="w-10 h-10 text-blue-400" />,
-    title: "Google Gemini AI Webinar",
-    description: "Certificate of Excellence for Outstanding Performance.",
-    color: "from-blue-400/20 to-cyan-900/20",
-  },
-  {
-    icon: <Star className="w-10 h-10 text-yellow-200" />,
-    title: "Elite Student – JAZZ ROCKERS",
-    description: "Winter Camp 2019 Award.",
-    color: "from-yellow-300/20 to-amber-900/20",
-  },
-  {
-    icon: <Palette className="w-10 h-10 text-pink-400" />,
-    title: "VCREATE Award",
-    description: "Awarded for exhibiting excellent creativity and independent thinking.",
-    color: "from-pink-500/20 to-rose-900/20",
-  },
-]
+];
 
 export default function AchievementsSection() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -269,7 +300,7 @@ export default function AchievementsSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            Achievements
+            Achievements & Awards
           </h2>
           <p className="text-white/50 text-lg max-w-xl mx-auto">
             Tap the card to reveal the next milestone.

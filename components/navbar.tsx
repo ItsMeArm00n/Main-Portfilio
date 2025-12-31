@@ -82,7 +82,7 @@ export default function Navbar() {
               About
             </button>
             <button
-              onClick={() => scrollToSection("certifications")}
+              onClick={() => scrollToSection("certifications-banner")}
               className="nav-item text-white/75 hover:text-white transition-colors relative"
               aria-label="Navigate to certifications section"
             >
@@ -94,13 +94,6 @@ export default function Navbar() {
               aria-label="Navigate to skills section"
             >
               Skills
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="nav-item text-white/75 hover:text-white transition-colors relative"
-              aria-label="Navigate to projects section"
-            >
-              Projects
             </button>
 
             <div className="relative">
@@ -119,46 +112,46 @@ export default function Navbar() {
               {isMoreDropdownOpen && (
                 <div
                   id="more-dropdown"
-                  className="absolute top-full left-0 mt-2 w-56 glass rounded-xl border border-white/20 shadow-xl overflow-hidden z-50"
+                  className="absolute top-full left-0 mt-2 w-64 glass rounded-xl border border-white/20 shadow-xl overflow-hidden z-50"
                   role="menu"
                 >
-                    <button
-                      onClick={() => scrollToSection('about')}
-                      className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
-                      role="menuitem"
-                    >
-                      About Me
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('certifications-banner')}
-                      className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
-                      role="menuitem"
-                    >
-                      Certifications & Courses
-                    </button>
-                  <button
-                    onClick={() => scrollToSection('skills')}
-                    className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
-                    role="menuitem"
-                  >
-                    Skills & Tools
-                  </button>
                   <button
                     onClick={() => scrollToSection('achievements')}
                     className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
                     role="menuitem"
                   >
-                    Achievements
+                    Achievements & Awards
                   </button>
                   <button
-                    onClick={() => scrollToSection("ongoing")}
+                    onClick={() => scrollToSection('experience')}
+                    className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
+                    role="menuitem"
+                  >
+                    Internships & Experience
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('leadership')}
+                    className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
+                    role="menuitem"
+                  >
+                    Leadership & Volunteering
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('projects')}
+                    className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
+                    role="menuitem"
+                  >
+                    Projects
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('ongoing')}
                     className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
                     role="menuitem"
                   >
                     Ongoing Projects
                   </button>
                   <button
-                    onClick={() => scrollToSection("publications")}
+                    onClick={() => scrollToSection('publications')}
                     className="w-full text-left px-4 py-3 text-white/75 hover:text-white hover:bg-white/10 transition-colors"
                     role="menuitem"
                   >
@@ -193,6 +186,16 @@ export default function Navbar() {
           <div className="md:hidden mt-4 glass rounded-lg p-4" role="menu">
             <div className="flex flex-col space-y-4 text-center">
               <button
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                  setIsMobileMenuOpen(false)
+                }}
+                className="text-white hover:text-white/80 transition-colors py-2"
+                role="menuitem"
+              >
+                Home
+              </button>
+              <button
                 onClick={() => scrollToSection("about")}
                 className="text-white hover:text-white/80 transition-colors py-2"
                 role="menuitem"
@@ -200,11 +203,11 @@ export default function Navbar() {
                 About
               </button>
               <button
-                onClick={() => scrollToSection("certifications-section")}
+                onClick={() => scrollToSection("certifications-banner")}
                 className="text-white hover:text-white/80 transition-colors py-2"
                 role="menuitem"
               >
-                Home
+                Certifications & Courses
               </button>
               <button
                 onClick={() => scrollToSection("skills")}
@@ -214,18 +217,32 @@ export default function Navbar() {
                 Skills
               </button>
               <button
+                onClick={() => scrollToSection("achievements")}
+                className="text-white hover:text-white/80 transition-colors py-2"
+                role="menuitem"
+              >
+                Achievements & Awards
+              </button>
+              <button
+                onClick={() => scrollToSection("experience")}
+                className="text-white hover:text-white/80 transition-colors py-2"
+                role="menuitem"
+              >
+                Internships & Experience
+              </button>
+              <button
+                onClick={() => scrollToSection("leadership")}
+                className="text-white hover:text-white/80 transition-colors py-2"
+                role="menuitem"
+              >
+                Leadership & Volunteering
+              </button>
+              <button
                 onClick={() => scrollToSection("projects")}
                 className="text-white hover:text-white/80 transition-colors py-2"
                 role="menuitem"
               >
                 Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("achievements")}
-                className="text-white hover:text-white/80 transition-colors py-2"
-                role="menuitem"
-              >
-                Achievements
               </button>
               <button
                 onClick={() => scrollToSection("ongoing")}

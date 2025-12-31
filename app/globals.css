@@ -360,12 +360,11 @@
 
 /* Added float animation for dynamic portfolio cards */
 @keyframes portfolioFloat {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
   }
 }
 
@@ -429,4 +428,8 @@
   position: absolute;
   top: 0;
   height: 100%;
+}
+
+.animate-portfolio-float {
+  animation: portfolioFloat 6s ease-in-out infinite;
 }
