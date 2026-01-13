@@ -39,10 +39,6 @@ export default function PublicationsSection() {
               </div>
             </div>
           </Card>
-
-          <div className="text-center">
-            <p className="text-white/60 text-lg italic">More coming soon...</p>
-          </div>
         </div>
       </div>
     </section>

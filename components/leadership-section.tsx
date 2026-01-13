@@ -42,7 +42,7 @@ const leadershipRoles: LeadershipRole[] = [
     id: "02",
     title: "Innovista Competition",
     role: "Team Lead",
-    description: "Led two independent teams in Innovista, overseeing ideation, technical development, task delegation, and final presentations for engineering-based solutions. Additionally, served as a team leader for several other competitions, guiding teams to success through effective collaboration and strategic planning.",
+    description: "Directed multiple teams in competitive engineering challenges, orchestrating ideation sessions, technical implementations, and presentation strategies that secured top placements. Extended leadership to various inter-school competitions, cultivating collaborative environments and driving teams toward excellence through strategic oversight and motivational guidance.",
     icon: <Flag className="w-8 h-8" />,
     color: "from-orange-500 to-red-500",
     stats: "Multiple Teams • Leadership"
@@ -91,6 +91,15 @@ const leadershipRoles: LeadershipRole[] = [
     icon: <Heart className="w-8 h-8" />,
     color: "from-pink-500 to-rose-500",
     stats: "Event • Coordination"
+  },
+  {
+    id: "08",
+    title: "Class Wellness",
+    role: "Wellness Manager",
+    description: "Promoted student well-being by organizing wellness activities, mental health awareness sessions, and fostering a positive classroom environment to support academic and personal growth.",
+    icon: <Heart className="w-8 h-8" />,
+    color: "from-green-500 to-teal-500",
+    stats: "Wellness • Management"
   }
 ]
 

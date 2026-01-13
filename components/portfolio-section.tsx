@@ -2,6 +2,13 @@
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, ExternalLink, Github, FlaskConical, X, Leaf, Waves, Activity } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 interface Project {
   id: string
@@ -15,51 +22,60 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "careersim",
+    title: "CareerSim AI",
+    description:
+      "A generative AI platform simulating career trajectories based on academic profiles. Leverages advanced Gemini Prompt Engineering to produce structured JSON data for personalized roadmaps, stream selection, and ROI analysis.",
+    image: "/Career-sim.png",
+    techStack: ["Next.js", "TypeScript", "Gemini API", "Prompt Engineering", "Tailwind CSS"],
+    demoLink: "https://careersim-ai.vercel.app/",
+  },
+  {
     id: "aqintel",
     title: "AQIntel",
     description:
-      "Full-stack AI system predicting Air Quality Index using advanced classification & regression models with real-time data visualization.",
+      "Dual-model air quality forecasting system. Features a Basic Classifier (97% accuracy) for simple inputs and an Advanced Regressor (99% R2 score) for complex pollutant data, deployed via a custom FastAPI wrapper on Hugging Face.",
     image: "/air-quality-prediction-dashboard.jpg",
-    techStack: ["Python", "JavaScript", "FastAPI", "HTML/CSS", "Scikit-learn", "Random Forest", "pandas", "Numpy", "Evaluation Metrics"]  ,
+    techStack: ["Python", "FastAPI", "Scikit-learn", "Random Forest", "HTML/CSS"],
     demoLink: "https://aqintel.netlify.app/",
   },
   {
     id: "medrisk",
     title: "MedRisk AI",
     description:
-      "Health Risk Classifier that predicts potential medical risks using Random Forest Classifier with high accuracy diagnostics.",
+      "Clinical triage system analyzing patient vitals (Respiratory, Cardiovascular, Neurological) to predict health risk levels. Powered by an XGBoost Classifier achieving 95% diagnostic accuracy.",
     image: "/medical-health-risk-prediction-interface.jpg",
-    techStack: ["Python", "Random Forest", "Pandas", "Next.js", "Kaggle", "Data Preprocessing", "V0.Dev", "Model Evaluation",],
+    techStack: ["Python", "XGBoost", "FastAPI", "Pandas", "Next.js"],
     demoLink: "https://med-risk-ai.vercel.app/",
   },
   {
     id: "politruth",
     title: "PoliTruth AI",
     description:
-      "Political & government-focused fake news detection system using advanced NLP and machine learning techniques.",
+      "Political misinformation detection system utilizing Natural Language Processing. Implements a PassiveAggressiveClassifier with NLTK preprocessing to identify fake news with 99% accuracy.",
     image: "/fake-news-detection-interface.jpg",
-    techStack: ["Python", "NLP", "NLTK", "PassiveAggressiveClassifier", "Next.js", "Text Preprocessing"],
+    techStack: ["Python", "NLTK", "PassiveAggressiveClassifier", "FastAPI", "Next.js"],
     demoLink: "https://politruth-ai.vercel.app/",
   },
   {
     id: "bhavsense",
     title: "BhāvSense AI",
     description:
-      "AI-powered Hindi language sentiment analysis tool for social media and text classification with cultural context awareness.",
+      "Linguistic sentiment analysis tool tailored for Hindi social media text. Utilizes a Logistic Regression model achieving 90% classification accuracy, bridging the gap in non-English NLP resources.",
     image: "/hindi-sentiment-analysis-interface.jpg",
-    techStack: ["Python", "NLP", "TfidfVectorizer", "LogisticRegression", "LinearSVC", "Transformers", "Flask", "Fine-tuning"],
+    techStack: ["Python", "Scikit-learn", "LogisticRegression", "FastAPI", "Next.js"],
     demoLink: "https://bhavsense-ai.vercel.app",
   },
   {
     id: "nexgen",
     title: "NexGen AI",
     description:
-      "Market Intelligence Dashboard providing real-time competitor analysis and customer insights using AI-driven analytics.",
+      "Real-time market intelligence dashboard generating competitor analysis and customer insights. Uses Gemini to structure unstructured AI data into dynamic JSON visualizations for immediate business intelligence.",
     image: "/market-intelligence-dashboard.jpg",
-    techStack: ["Next.js", "OpenAI", "Python", "PostgreSQL"],
+    techStack: ["Next.js", "TypeScript", "Gemini API", "Prompt Engineering", "PostgreSQL"],
     demoLink: "https://nexgen-ai-pro.vercel.app",
   },
-]
+];
 
 const miscProjects = [
   {
@@ -96,6 +112,7 @@ export default function PortfolioSection() {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isMiscOpen, setIsMiscOpen] = useState(false)
+  const [isAqIntelOpen, setIsAqIntelOpen] = useState(false)
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const currentProject = projects[currentIndex]
@@ -166,7 +183,7 @@ export default function PortfolioSection() {
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
           style={{
-            backgroundImage: `url(${currentProject.image})`,
+            backgroundImage: `url('${currentProject.image}')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/50 to-black/95 backdrop-blur-sm"></div>
@@ -249,15 +266,25 @@ export default function PortfolioSection() {
                         </a>
                       )}
                       {project.demoLink && (
-                        <a
-                          href={project.demoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 hover:scale-105 font-medium shadow-lg shadow-blue-500/30"
-                        >
-                          <ExternalLink className="w-5 h-5" />
-                          Live Demo
-                        </a>
+                        project.id === "aqintel" ? (
+                          <button
+                            onClick={() => setIsAqIntelOpen(true)}
+                            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 hover:scale-105 font-medium shadow-lg shadow-blue-500/30"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                            Live Demo
+                          </button>
+                        ) : (
+                          <a
+                            href={project.demoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 hover:scale-105 font-medium shadow-lg shadow-blue-500/30"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                            Live Demo
+                          </a>
+                        )
                       )}
                     </div>
                   </div>
@@ -366,6 +393,46 @@ export default function PortfolioSection() {
           </div>
         </div>
       )}
+      {/* AqIntel Version Dialog */}
+      <Dialog open={isAqIntelOpen} onOpenChange={setIsAqIntelOpen}>
+        <DialogContent className="bg-gray-900 border-white/10 text-white sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">Select AQIntel Version</DialogTitle>
+            <DialogDescription className="text-gray-400">
+              Choose which version of the Air Quality Intelligence system you would like to view.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-4 py-4">
+            <a
+              href="https://aqintel.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 transition-all duration-300"
+              onClick={() => setIsAqIntelOpen(false)}
+            >
+              <div>
+                <h4 className="font-semibold text-lg text-white group-hover:text-blue-400 transition-colors">AQIntel V1</h4>
+                <p className="text-sm text-gray-400">Original Prototype</p>
+              </div>
+              <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-400" />
+            </a>
+            
+            <a
+              href="https://eco-360-phi.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 transition-all duration-300"
+              onClick={() => setIsAqIntelOpen(false)}
+            >
+              <div>
+                <h4 className="font-semibold text-lg text-white group-hover:text-purple-400 transition-colors">AQIntel V2</h4>
+                <p className="text-sm text-gray-400">Enhanced Version (Eco 360)</p>
+              </div>
+              <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400" />
+            </a>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

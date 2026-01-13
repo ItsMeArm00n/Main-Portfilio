@@ -17,8 +17,10 @@ const experiences: Experience[] = [
     logo: "/image_2025-10-19_003403042-removebg-preview.png",
   },
   {
-    title: "More coming soon...",
-    description: "Stay tuned for future experiences and internships!",
+    title: "AI Intern – Miracle Print Advertising",
+    description:
+      "Led employee training on AI automation to streamline workflows and boost efficiency. Demonstrated real-world AI strategies for business optimization during the internship.",
+    logo: "/Miracle print adv.png",
   },
 ]
 

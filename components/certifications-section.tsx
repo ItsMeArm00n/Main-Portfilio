@@ -52,6 +52,12 @@ const certifications = [
     description:
       "A virtual internship by Tata Group exploring how generative AI can be used in analytics. The experience involved identifying stakeholder needs, generating insights from data using GenAI tools, creating dashboards, and converting analytical findings into business recommendations. It offered exposure to modern data visualization and AI-assisted business intelligence workflows.",
   },
+  {
+    name: "New York Jobs CEO Council Software Engineering Job Simulation on Forage - September 2025",
+    logo: "/newyork.png",
+    description:
+      "Completed a challenging simulation focused on debugging and developing features for the software engineering team. Resolved a critical bug in an automated billing system by skillfully identifying the root cause and developing an effective solution. Improved user experience by developing a code that supports a note-taking feature on each invoice, enhancing communication and transparency between senders and recipients.",
+  },
 ];
 
 

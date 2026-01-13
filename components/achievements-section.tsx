@@ -8,54 +8,64 @@ import styles from "./achievements-section.module.css"
 interface Achievement {
   icon: React.ReactNode
   title: string
-  description: string
+  description: React.ReactNode
   color: string
+  status?: string
 }
 
 const achievements: Achievement[] = [
   // --- TIER 1: NATIONAL & MAJOR COMPETITIONS ---
   {
+    icon: <Bot className="w-10 h-10 text-cyan-400" />,
+    title: "TechSprint – Leveraging the Power of AI Hackathon",
+    description: <>Qualified for finals (Top 25 among 500+ participants) <span className="font-bold text-cyan-300">(Top 5%)</span>.</>,
+    color: "from-cyan-500/20 to-blue-900/20",
+    status: "Ongoing",
+  },
+  {
     icon: <Terminal className="w-10 h-10 text-cyan-400" />,
     title: "Finalist – Quantathon (Shaastra)",
-    description: "Qualified for the Grand Finale (Top 6 Nationwide) in a high-stakes algorithmic challenge among ~1000 participants.",
+    description: <>Qualified for the Grand Finale (Top 6 Nationwide) <span className="font-bold text-cyan-300">(Top 0.6%)</span> in a high-stakes algorithmic challenge among ~1000 participants.</>,
     color: "from-cyan-500/20 to-blue-900/20",
+    status: "Ongoing",
   },
   {
     icon: <GitCommit className="w-10 h-10 text-green-400" />,
     title: "1st Place – Commit & Conquer",
-    description: "Ranked 1st (Top 0.25%) among 400+ contributors in an Open-Source Hackathon.",
+    description: <>Ranked 1st <span className="font-bold text-green-300">(Top 0.25%)</span> among 400+ contributors in an Open-Source Hackathon.</>,
     color: "from-green-500/20 to-emerald-900/20",
   },
   {
     icon: <Zap className="w-10 h-10 text-orange-400" />,
     title: "National Finalist – SwastAI",
-    description: "Shortlisted for Round 2 (Grand Finale) of the Bharath Innovation Challenge for an AI-driven holistic health platform.",
+    description: <><span className="font-bold text-orange-300">Shortlisted</span> for Round 2 (Grand Finale) of the Bharath Innovation Challenge for an AI-driven holistic health platform.</>,
     color: "from-orange-500/20 to-red-900/20",
+    status: "Ongoing",
   },
 
   // --- TIER 2: ENGINEERING & AI SPECIALIZATION ---
   {
     icon: <Medal className="w-10 h-10 text-blue-400" />,
     title: "3rd Place – Innovista (Eco Haven)",
-    description: "Developed 'Eco Haven' featuring Arduino-based autonomous plant systems and self-healing materials (concrete/circuits).",
+    description: <>Came <span className="font-bold text-blue-300">3rd place</span> by developing 'Eco Haven' featuring Arduino-based autonomous plant systems, self-healing materials (concrete/circuits), and a robot fish that eats plastic.</>,
     color: "from-blue-500/20 to-indigo-900/20",
   },
   {
     icon: <Bot className="w-10 h-10 text-blue-400" />,
     title: "Google Gemini AI – Excellence",
-    description: "Awarded for outstanding performance and knowledge sharing during 'The Future is Now' AI ambassador session among 500+ people.",
+    description: <>Awarded for <span className="font-bold text-blue-300">outstanding performance</span> and knowledge sharing during 'The Future is Now' AI ambassador session among 500+ people.</>,
     color: "from-blue-400/20 to-cyan-900/20",
   },
   {
     icon: <Trophy className="w-10 h-10 text-yellow-400" />,
     title: "1st Place – Techfest AI",
-    description: "Led the presentation of a winning AI project across a competitive field of three schools.",
+    description: <>Came <span className="font-bold text-yellow-300">first place</span> by leading the presentation of a winning AI project across a competitive field of three schools.</>,
     color: "from-yellow-500/20 to-amber-900/20",
   },
   {
     icon: <Award className="w-10 h-10 text-purple-400" />,
     title: "Project Prometheus (Spectrum)",
-    description: "Won 'Best Theme Relevance' for a scientific model converting carbon compounds into graphene.",
+    description: <>Won '<span className="font-bold text-purple-300">Best Theme Relevance</span>' for a scientific model converting carbon compounds into graphene.</>,
     color: "from-purple-500/20 to-fuchsia-900/20",
   },
 
@@ -63,39 +73,40 @@ const achievements: Achievement[] = [
   {
     icon: <Terminal className="w-10 h-10 text-emerald-400" />,
     title: "Tough Tongue AI Challenge",
-    description: "Achieved Top 5% (Rank 24/440) in a technical challenge covering AI logic and coding puzzles.",
+    description: <>Achieved <span className="font-bold text-emerald-300">Top 5%</span> (Rank 24/440) in a technical challenge covering AI logic and coding puzzles.</>,
     color: "from-emerald-500/20 to-teal-900/20",
   },
   {
     icon: <Star className="w-10 h-10 text-yellow-400" />,
     title: "Quiz-A-Thon 1.0",
-    description: "Achieved Top 4% (Rank 19/471) in an advanced JavaScript and technical MCQ assessment.",
+    description: <>Achieved <span className="font-bold text-yellow-300">Top 4%</span> (Rank 19/471) in an advanced JavaScript and technical MCQ assessment.</>,
     color: "from-yellow-500/20 to-orange-900/20",
   },
   {
     icon: <GitCommit className="w-10 h-10 text-indigo-400" />,
     title: "Elite Coders Winter of Code",
-    description: "Selected member of an exclusive 1,000+ developer community for open-source contribution.",
+    description: <>Achieved Rank 24 <span className="font-bold text-indigo-300">(Top 2.4%)</span> (as of January 5, 2026) in an exclusive 1,000+ developer community for open-source contribution.</>,
     color: "from-indigo-500/20 to-purple-900/20",
+    status: "Ongoing",
   },
 
   // --- TIER 4: SOFT SKILLS & ACADEMICS ---
   {
     icon: <Award className="w-10 h-10 text-purple-400" />,
     title: "Runner-Up Best Staff (Quix MUN)",
-    description: "Recognized as the Top 3% of the Staff Board (Rank 2/60) for leadership and operational excellence.",
+    description: <>Recognized as the <span className="font-bold text-purple-300">Top 3%</span> of the Staff Board (Rank 2/60) for leadership and operational excellence.</>,
     color: "from-purple-500/20 to-violet-900/20",
   },
   {
     icon: <Palette className="w-10 h-10 text-pink-400" />,
     title: "VCREATE Creative Award",
-    description: "Recognized for independent thinking and creative problem-solving in multidisciplinary projects.",
+    description: <>Recognized for <span className="font-bold text-pink-300">independent thinking</span> and creative problem-solving in multidisciplinary projects.</>,
     color: "from-pink-500/20 to-rose-900/20",
   },
   {
     icon: <Zap className="w-10 h-10 text-yellow-300" />,
     title: "Ignited Mind Award",
-    description: "Honored for consistent academic excellence and superior performance in school enrichment assessments.",
+    description: <>Honored for <span className="font-bold text-yellow-300">consistent academic excellence</span> and superior performance in school enrichment assessments.</>,
     color: "from-yellow-400/20 to-orange-900/20",
   },
 ];
@@ -311,12 +322,19 @@ export default function AchievementsSection() {
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className={styles.card}
+              className={`${styles.card} ${achievement.status === "Ongoing" ? styles.ongoingCard : ''}`}
               style={getCardStyle(index)}
               onClick={() => handleCardClick(index)}
             >
               {/* Dynamic background gradient based on achievement type */}
               <div className={`absolute inset-0 bg-gradient-to-br ${achievement.color} opacity-20`}></div>
+              
+              {achievement.status === "Ongoing" && (
+                <div className={styles.ongoingBadge}>
+                  <div className={styles.pulseDot}></div>
+                  <span>Ongoing Competition</span>
+                </div>
+              )}
               
               <div className={styles.cardContent}>
                 <div className={styles.leftColumn}>
@@ -333,6 +351,7 @@ export default function AchievementsSection() {
                 </div>
                 
                 <div className={styles.rightColumn}>
+                  {/* Status indicated by card glow */}
                   <h3 className={styles.cardTitle}>{achievement.title}</h3>
                   <p className={styles.cardDescription}>{achievement.description}</p>
                   
