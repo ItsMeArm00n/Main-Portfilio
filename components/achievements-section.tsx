@@ -14,7 +14,6 @@ interface Achievement {
 }
 
 const achievements: Achievement[] = [
-  // --- TIER 1: NATIONAL & MAJOR COMPETITIONS ---
   {
     icon: <Bot className="w-10 h-10 text-cyan-400" />,
     title: "TechSprint – Leveraging the Power of AI Hackathon",
@@ -43,7 +42,6 @@ const achievements: Achievement[] = [
     status: "Ongoing",
   },
 
-  // --- TIER 2: ENGINEERING & AI SPECIALIZATION ---
   {
     icon: <Medal className="w-10 h-10 text-blue-400" />,
     title: "3rd Place – Innovista (Eco Haven)",
@@ -69,7 +67,6 @@ const achievements: Achievement[] = [
     color: "from-purple-500/20 to-fuchsia-900/20",
   },
 
-  // --- TIER 3: TECHNICAL RANKINGS & ASSESSMENTS ---
   {
     icon: <Terminal className="w-10 h-10 text-emerald-400" />,
     title: "Tough Tongue AI Challenge",
@@ -89,8 +86,6 @@ const achievements: Achievement[] = [
     color: "from-indigo-500/20 to-purple-900/20",
     status: "Ongoing",
   },
-
-  // --- TIER 4: SOFT SKILLS & ACADEMICS ---
   {
     icon: <Award className="w-10 h-10 text-purple-400" />,
     title: "Runner-Up Best Staff (Quix MUN)",
