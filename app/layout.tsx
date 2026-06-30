@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { LanguageProvider } from "@/contexts/language-context"
-import AutoScroller from "@/components/auto-scroller"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -99,7 +98,6 @@ export default function RootLayout({
       <body className={spaceGrotesk.className}>
         <LanguageProvider>
           {children}
-          <AutoScroller />
         </LanguageProvider>
       </body>
     </html>
